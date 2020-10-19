@@ -19,6 +19,7 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     lastAndSearch()
+                    VocabularyAdd()
                 }
             }
             .navigationTitle("Japanese")
