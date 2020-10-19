@@ -13,6 +13,8 @@
 		4E095529253E0343001568FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E095528253E0343001568FF /* Preview Assets.xcassets */; };
 		4E09552B253E0343001568FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09552A253E0343001568FF /* Persistence.swift */; };
 		4E09552E253E0343001568FF /* JapHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E09552C253E0343001568FF /* JapHelper.xcdatamodeld */; };
+		4E095537253E05DD001568FF /* lastAndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E095536253E05DD001568FF /* lastAndSearch.swift */; };
+		4E09553B253E083F001568FF /* VocabularyAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09553A253E083F001568FF /* VocabularyAdd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4E09552A253E0343001568FF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4E09552D253E0343001568FF /* JapHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JapHelper.xcdatamodel; sourceTree = "<group>"; };
 		4E09552F253E0343001568FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E095536253E05DD001568FF /* lastAndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastAndSearch.swift; sourceTree = "<group>"; };
+		4E09553A253E083F001568FF /* VocabularyAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyAdd.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			children = (
 				4E095521253E0340001568FF /* JapHelperApp.swift */,
 				4E095523253E0340001568FF /* ContentView.swift */,
+				4E095539253E07FB001568FF /* SubViews */,
 				4E095525253E0343001568FF /* Assets.xcassets */,
 				4E09552A253E0343001568FF /* Persistence.swift */,
 				4E09552F253E0343001568FF /* Info.plist */,
@@ -73,6 +78,15 @@
 				4E095528253E0343001568FF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4E095539253E07FB001568FF /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				4E095536253E05DD001568FF /* lastAndSearch.swift */,
+				4E09553A253E083F001568FF /* VocabularyAdd.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,8 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E095537253E05DD001568FF /* lastAndSearch.swift in Sources */,
 				4E09552B253E0343001568FF /* Persistence.swift in Sources */,
 				4E09552E253E0343001568FF /* JapHelper.xcdatamodeld in Sources */,
+				4E09553B253E083F001568FF /* VocabularyAdd.swift in Sources */,
 				4E095524253E0340001568FF /* ContentView.swift in Sources */,
 				4E095522253E0340001568FF /* JapHelperApp.swift in Sources */,
 			);
