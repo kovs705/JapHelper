@@ -12,7 +12,7 @@ struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [], animation: .default)
-    private var items: FetchedResults<Item>
+    private var groups: FetchedResults<Group>
     
     var body: some View {
         NavigationView {

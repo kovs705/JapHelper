@@ -9,7 +9,21 @@ import SwiftUI
 
 struct VocabularyAdd: View {
     
+    private func alert() {
+        let alert = UIAlertController(title: "Create a group..", message: "Add", preferredStyle: .alert)
+        alert.addTextField() { textField in
+            textField.placeholder = "Group name.."
+        }
+        
+    }
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [], animation: .default)
+        private var groups: FetchedResults<Group>
+    
     let quickList = ["Adjectives", "Verbs", "Nouns"]
+    
+    @State var showingAlert = false
     
     // quick list of your vocabulary + abbility to create the new list (or group)
     var body: some View {
@@ -17,16 +31,20 @@ struct VocabularyAdd: View {
             HStack {
                 Text("Vocabulary")
                     .font(.system(size: 23))
+                    .bold()
                 
                 Spacer()
                 
                 Button(action: {
                     // create a list with alert:
-                    
+                    self.showingAlert = true
                 }) {
                     Image(systemName: "plus")
                         .font(.system(size: 24))
                         .foregroundColor(.red)
+                }
+                .alert(isPresented: $showingAlert) {
+                    alert()
                 }
             }
             .padding()
@@ -39,8 +57,14 @@ struct VocabularyAdd: View {
                     }
                 }
             }
+            .padding(.horizontal)
         }
     }
+    
+    // MARK: - Creating and Deleting words:
+    // extension Group {
+        //@objc(add)
+    // }
 }
 
 struct VocabularyAdd_Previews: PreviewProvider {
