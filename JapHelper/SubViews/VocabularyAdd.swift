@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct VocabularyAdd: View {
     
     private func alert() {
@@ -14,7 +15,7 @@ struct VocabularyAdd: View {
         alert.addTextField() { textField in
             textField.placeholder = "Group name.."
         }
-        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
     }
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -43,16 +44,16 @@ struct VocabularyAdd: View {
                         .font(.system(size: 24))
                         .foregroundColor(.red)
                 }
-                .alert(isPresented: $showingAlert) {
-                    alert()
-                }
+                //.alert(isPresented: $showingAlert) {
+                    // alert()
+                // }
             }
             .padding()
             // end of HStack
             List {
-                ForEach(quickList, id: (\.self)) { item in
+                ForEach(groups, id: (\.self)) { group in
                     HStack {
-                        Text("\(item.description)")
+                        Text("\(groups.count)")
                         
                     }
                 }
