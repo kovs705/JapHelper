@@ -11,8 +11,8 @@ import CoreData
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [], animation: .default)
-    private var groups: FetchedResults<Group>
+    @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
+    var groups: FetchedResults<Group>
     
     var body: some View {
         NavigationView {

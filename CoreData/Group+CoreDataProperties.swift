@@ -20,7 +20,7 @@ extension Group {
     @NSManaged public var name: String?
     
     
-    public var wrappedWords: String {
+    public var wrappedName: String {
         name ?? "Unknown group"
     }
     

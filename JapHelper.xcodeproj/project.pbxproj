@@ -15,6 +15,7 @@
 		4E09552E253E0343001568FF /* JapHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E09552C253E0343001568FF /* JapHelper.xcdatamodeld */; };
 		4E095537253E05DD001568FF /* lastAndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E095536253E05DD001568FF /* lastAndSearch.swift */; };
 		4E09553B253E083F001568FF /* VocabularyAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09553A253E083F001568FF /* VocabularyAdd.swift */; };
+		4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */; };
 		4EF784472540BE0C005BF2E0 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */; };
 		4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */; };
 		4EF784492540BE0C005BF2E0 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */; };
@@ -32,6 +33,7 @@
 		4E09552F253E0343001568FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E095536253E05DD001568FF /* lastAndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastAndSearch.swift; sourceTree = "<group>"; };
 		4E09553A253E083F001568FF /* VocabularyAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyAdd.swift; sourceTree = "<group>"; };
+		4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfWords.swift; sourceTree = "<group>"; };
 		4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				4E095521253E0340001568FF /* JapHelperApp.swift */,
-				4E095523253E0340001568FF /* ContentView.swift */,
+				4E6F5EF32540C30A00C7CE93 /* Pages */,
 				4E095539253E07FB001568FF /* SubViews */,
 				4E095525253E0343001568FF /* Assets.xcassets */,
 				4E09552A253E0343001568FF /* Persistence.swift */,
@@ -96,6 +98,15 @@
 				4E09553A253E083F001568FF /* VocabularyAdd.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		4E6F5EF32540C30A00C7CE93 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				4E095523253E0340001568FF /* ContentView.swift */,
+				4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		4EF7844C2540BF2F005BF2E0 /* CoreData */ = {
@@ -187,6 +198,7 @@
 				4E095524253E0340001568FF /* ContentView.swift in Sources */,
 				4EF7844A2540BE0C005BF2E0 /* Group+CoreDataProperties.swift in Sources */,
 				4E095522253E0340001568FF /* JapHelperApp.swift in Sources */,
+				4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */,
 				4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,10 +5,18 @@
 //  Created by Kovs on 19.10.2020.
 //
 
+// Create a sheet to add a new group with the button on dismiss
+//Add a DetailView to check each groups words inside
+
+
 import SwiftUI
 
 
 struct VocabularyAdd: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
+    var groups: FetchedResults<Group>
     
     private func alert() {
         let alert = UIAlertController(title: "Create a group..", message: "Add", preferredStyle: .alert)
@@ -17,10 +25,6 @@ struct VocabularyAdd: View {
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
     }
-    
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [], animation: .default)
-        private var groups: FetchedResults<Group>
     
     let quickList = ["Adjectives", "Verbs", "Nouns"]
     
