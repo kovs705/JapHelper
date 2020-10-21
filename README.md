@@ -15,4 +15,4 @@ Okay so here is the list of problems(?):
   - from changing the size of the text to animations
   - actually it is just UI and UX, haha
   
- As you can understand, right now i'm not working on this project, so it would be better rebuilding it and creating a new repository, but with Stroyboard and with corrected mistakes.
+
