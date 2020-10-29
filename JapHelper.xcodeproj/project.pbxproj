@@ -15,7 +15,10 @@
 		4E09552E253E0343001568FF /* JapHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E09552C253E0343001568FF /* JapHelper.xcdatamodeld */; };
 		4E095537253E05DD001568FF /* lastAndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E095536253E05DD001568FF /* lastAndSearch.swift */; };
 		4E09553B253E083F001568FF /* VocabularyAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09553A253E083F001568FF /* VocabularyAdd.swift */; };
+		4E149474254AA9BC00BB10EE /* LessonsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E149473254AA9BC00BB10EE /* LessonsList.json */; };
+		4E149477254AABAB00BB10EE /* testButtonAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E149476254AABAB00BB10EE /* testButtonAdd.swift */; };
 		4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */; };
+		4EA6A51F254B05CD00D9B727 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6A51E254B05CD00D9B727 /* Data.swift */; };
 		4EF784472540BE0C005BF2E0 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */; };
 		4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */; };
 		4EF784492540BE0C005BF2E0 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */; };
@@ -33,7 +36,10 @@
 		4E09552F253E0343001568FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E095536253E05DD001568FF /* lastAndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastAndSearch.swift; sourceTree = "<group>"; };
 		4E09553A253E083F001568FF /* VocabularyAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyAdd.swift; sourceTree = "<group>"; };
+		4E149473254AA9BC00BB10EE /* LessonsList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LessonsList.json; sourceTree = "<group>"; };
+		4E149476254AABAB00BB10EE /* testButtonAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testButtonAdd.swift; sourceTree = "<group>"; };
 		4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfWords.swift; sourceTree = "<group>"; };
+		4EA6A51E254B05CD00D9B727 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -55,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				4EF7844C2540BF2F005BF2E0 /* CoreData */,
+				4EA6A51D254B04AC00D9B727 /* Data */,
 				4E095520253E0340001568FF /* JapHelper */,
 				4E09551F253E0340001568FF /* Products */,
 			);
@@ -96,6 +103,7 @@
 			children = (
 				4E095536253E05DD001568FF /* lastAndSearch.swift */,
 				4E09553A253E083F001568FF /* VocabularyAdd.swift */,
+				4E149476254AABAB00BB10EE /* testButtonAdd.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -107,6 +115,15 @@
 				4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		4EA6A51D254B04AC00D9B727 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4E149473254AA9BC00BB10EE /* LessonsList.json */,
+				4EA6A51E254B05CD00D9B727 /* Data.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		4EF7844C2540BF2F005BF2E0 /* CoreData */ = {
@@ -178,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E095529253E0343001568FF /* Preview Assets.xcassets in Resources */,
+				4E149474254AA9BC00BB10EE /* LessonsList.json in Resources */,
 				4E095526253E0343001568FF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,9 +215,11 @@
 				4E09553B253E083F001568FF /* VocabularyAdd.swift in Sources */,
 				4E095524253E0340001568FF /* ContentView.swift in Sources */,
 				4EF7844A2540BE0C005BF2E0 /* Group+CoreDataProperties.swift in Sources */,
+				4EA6A51F254B05CD00D9B727 /* Data.swift in Sources */,
 				4E095522253E0340001568FF /* JapHelperApp.swift in Sources */,
 				4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */,
 				4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */,
+				4E149477254AABAB00BB10EE /* testButtonAdd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

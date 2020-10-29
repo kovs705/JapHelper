@@ -16,13 +16,17 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
+            ZStack {
             ScrollView {
                 VStack {
                     lastAndSearch()
                     VocabularyAdd()
                 }
             }
+            // end of the ScrollVIew
             .navigationTitle("Japanese")
+            .padding(.trailing)
+            }
         }
         
     }
