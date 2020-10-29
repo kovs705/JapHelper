@@ -13,7 +13,7 @@ struct lastAndSearch: View {
             HStack {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.red)
-                    .frame(width: 200, height: 240)
+                    .frame(width: 210, height: 240)
                     .padding()
                 VStack {
                     RoundedRectangle(cornerRadius: 20)

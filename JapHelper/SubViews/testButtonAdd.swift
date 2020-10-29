@@ -15,10 +15,14 @@ struct testButtonAdd: View {
                     .fill(Color.blue)
                 HStack {
                     Image(systemName: "plus")
-                    Text("Add a group")
+                        .foregroundColor(.white)
+                    Text("Add group")
+                        .foregroundColor(.white)
+                        .bold()
+                        .lineLimit(0)
                 }
             }
-            .frame(width: 100, height: 20)
+            .frame(width: 140, height: 45)
         }
     }
     

@@ -23,9 +23,17 @@ struct ContentView: View {
                     VocabularyAdd()
                 }
             }
+                VStack {
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        testButtonAdd()
+                    }
+                }
+                .padding()
             // end of the ScrollVIew
             .navigationTitle("Japanese")
-            .padding(.trailing)
             }
         }
         
