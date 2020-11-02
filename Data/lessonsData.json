@@ -1,0 +1,20 @@
+
+[
+    {
+        "name": "Checking #1",
+        "info": {
+            "level": "N5",
+            "text": "Just the first test of the first object in JSON file with the name of LessonsList.json \n checking for the next line just to keep sure everything works FINE!",
+            "additionalInfo": ""
+        }
+        
+    },
+    {
+        "name": "Your first japanese lesson!",
+        "info": {
+            "level": "N4",
+            "text": "Just to keep sure the second object of json file with name of LessonsList.json works as good as the first object, I will create another one just to keep sure everything is okay and I can go coding",
+            "additionalInfo": "Small Tortoiseshell"
+        }
+    }
+]
