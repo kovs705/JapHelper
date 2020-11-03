@@ -7,17 +7,8 @@
 
 import SwiftUI
 import CoreData
-
+  
 struct ContentView: View {
-    
-    /*
-     name
-        info:
-            level
-            text
-            additionalInfo
-     end
-     */
     
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)

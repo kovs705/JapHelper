@@ -7,8 +7,36 @@
 
 import SwiftUI
 
+// MARK: - Colors
+extension Color {
+    public static var brownColor: Color {
+        return Color(red: 133 / 255, green: 94 / 255, blue: 66 / 255)
+    }
+    public static var redColor: Color {
+        return Color(red: 220 / 255, green: 0 / 255, blue: 0 / 255)
+    }
+    public static var oliveGreen: Color {
+        return Color(red: 85 / 255, green: 107 / 255, blue: 47 / 255)
+    }
+    public static var offWhite: Color {
+        return Color(red: 234 / 255, green: 245 / 255, blue: 245 / 255)
+    }
+    public static var navyBlue: Color {
+        return Color(red: 28 / 255, green: 46 / 255, blue: 74 / 255)
+    }
+}
+
+// let redCOlor = UIColor(named: "redColor")
+// let brownColor = UIColor(named: "brownColor")
+// let oliveGreen = UIColor(named: "oliveGreen")
+// let offWhite = UIColor(named: "offWhite")
+// let navyBlue = UIColor(named: "navyBlue")
+
+
+
 // MARK: - Load the lesson from JSON file:
 let lessonsData: [Lesson] = load("lessonsData.json")
+
 
 // MARK: - Loading from JSON
 func load<T: Decodable>(_ filename: String) -> T {
