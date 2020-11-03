@@ -5,8 +5,8 @@
 //  Created by Kovs on 19.10.2020.
 //
 
-// Create a sheet to add a new group with the button on dismiss
-//Add a DetailView to check each groups words inside
+// TODO: Create a sheet to add a new group with the button on dismiss
+// TODO: Add a DetailView to check each groups words inside
 
 
 import SwiftUI
@@ -30,7 +30,7 @@ struct VocabularyAdd: View {
     
     @State var showingAlert = false
     
-    // quick list of your vocabulary + abbility to create the new list (or group)
+    // TODO: quick list of your vocabulary + abbility to create the new list (or group)
     var body: some View {
         VStack {
             HStack {
@@ -65,11 +65,6 @@ struct VocabularyAdd: View {
             .padding(.horizontal)
         }
     }
-    
-    // MARK: - Creating and Deleting words:
-    // extension Group {
-        //@objc(add)
-    // }
 }
 
 struct VocabularyAdd_Previews: PreviewProvider {
