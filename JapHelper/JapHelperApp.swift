@@ -13,7 +13,7 @@ struct JapHelperApp: App {
 
     var body: some Scene {
         WindowGroup {
-            lessonsPage_Test_(lesson: lessonsData[0])
+            lessonsList(lesson: lessonsData[0])
                 //.environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

@@ -9,6 +9,21 @@
             additionalInfo
      end
      */
+   
+   // EXAMPLES IN JSON
+   
+   /*
+    "examples": {
+        "first": {
+            "word": "Hello",
+            "translation": "こんにちは"
+        },
+        "second": {
+            "word": "see you!",
+            "translation": "またね!"
+        }
+    }
+    */
 
 import SwiftUI
    // MARK: - Instructions
@@ -21,6 +36,7 @@ import SwiftUI
 // MARK: - DeatilView struct
 struct lessonsPage_Test_: View {
     var lesson: Lesson
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ScrollView {
@@ -62,7 +78,6 @@ struct lessonsPage_Test_: View {
                     
                     Text(lesson.info.level.rawValue)
                         .font(.custom("AvenirNext-Bold", size: 15))
-                        //.fontWeight(.black)
                     Spacer()
                 }
                 .padding(.top, 20)
@@ -73,18 +88,52 @@ struct lessonsPage_Test_: View {
                     .lineLimit(nil)
                     .padding(.top, 10)
                 
+                // MARK: - Text
                 Text(lesson.info.text)
                     .font(.system(size: 20))
                     .lineLimit(nil)
                     .padding(.top, 30)
+                    //.fixedSize(horizontal: false, vertical: true)
                 
+                // MARK: - Example List
+                // listOfExamples(lesson: $0.lessonsData)
             }
             .padding(.horizontal)
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
         .edgesIgnoringSafeArea(.top)
         // end of ScrollView
     }
 }
+  
+   
+   struct listOfExamples {
+    var lesson: Lesson
+    
+    var body: some View {
+        VStack {
+            List {
+                // first object:
+                HStack {
+                    Text(lesson.examples.first.word)
+                    Spacer()
+                    Text(lesson.examples.first.translation)
+                }
+                .padding(.horizontal)
+                // second object:
+                HStack {
+                    Text(lesson.examples.second.word)
+                    Spacer()
+                    Text(lesson.examples.second.translation)
+                }
+                .padding(.horizontal)
+            }
+        }
+        
+    }
+    
+   }
 
 struct lessonsPage_Test__Previews: PreviewProvider {
     static var previews: some View {

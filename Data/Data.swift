@@ -74,7 +74,7 @@ func load<T: Decodable>(_ filename: String) -> T {
  }
  */
 // MARK: - Lesson Struct
-struct Lesson: Codable {
+struct Lesson: Codable, Identifiable {
     let name: String
     let id: Int
     

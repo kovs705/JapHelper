@@ -24,7 +24,7 @@
     {
         "name": "Your first japanese lesson!",
         "id": 2,
-        "imageName": "second",
+        "imageName": "",
         "info": {
             "level": "N4",
             "text": "Just to keep sure the second object of json file with name of LessonsList.json works as good as the first object, I will create another one just to keep sure everything is okay and I can go coding",

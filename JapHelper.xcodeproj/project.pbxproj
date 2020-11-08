@@ -19,6 +19,8 @@
 		4E149477254AABAB00BB10EE /* testButtonAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E149476254AABAB00BB10EE /* testButtonAdd.swift */; };
 		4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */; };
 		4E70C48E255806A000EA87E0 /* first.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E70C48D255806A000EA87E0 /* first.jpg */; };
+		4E757235255874C7009B9777 /* lessonsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E757234255874C7009B9777 /* lessonsList.swift */; };
+		4E75723825587539009B9777 /* lessonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E75723725587539009B9777 /* lessonRow.swift */; };
 		4EA6A51F254B05CD00D9B727 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6A51E254B05CD00D9B727 /* Data.swift */; };
 		4EE2A6E125508A1100A45231 /* lessonsPage(Test).swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */; };
 		4EF784472540BE0C005BF2E0 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */; };
@@ -42,6 +44,8 @@
 		4E149476254AABAB00BB10EE /* testButtonAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testButtonAdd.swift; sourceTree = "<group>"; };
 		4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfWords.swift; sourceTree = "<group>"; };
 		4E70C48D255806A000EA87E0 /* first.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = first.jpg; sourceTree = "<group>"; };
+		4E757234255874C7009B9777 /* lessonsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lessonsList.swift; sourceTree = "<group>"; };
+		4E75723725587539009B9777 /* lessonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lessonRow.swift; sourceTree = "<group>"; };
 		4EA6A51E254B05CD00D9B727 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "lessonsPage(Test).swift"; sourceTree = "<group>"; };
 		4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 		4E095539253E07FB001568FF /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				4E75723725587539009B9777 /* lessonRow.swift */,
 				4E095536253E05DD001568FF /* lastAndSearch.swift */,
 				4E09553A253E083F001568FF /* VocabularyAdd.swift */,
 				4E149476254AABAB00BB10EE /* testButtonAdd.swift */,
@@ -118,6 +123,7 @@
 				4E095523253E0340001568FF /* ContentView.swift */,
 				4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */,
 				4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */,
+				4E757234255874C7009B9777 /* lessonsList.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -220,12 +226,14 @@
 				4E09552E253E0343001568FF /* JapHelper.xcdatamodeld in Sources */,
 				4EF784472540BE0C005BF2E0 /* Word+CoreDataClass.swift in Sources */,
 				4E09553B253E083F001568FF /* VocabularyAdd.swift in Sources */,
+				4E75723825587539009B9777 /* lessonRow.swift in Sources */,
 				4E095524253E0340001568FF /* ContentView.swift in Sources */,
 				4EF7844A2540BE0C005BF2E0 /* Group+CoreDataProperties.swift in Sources */,
 				4EA6A51F254B05CD00D9B727 /* Data.swift in Sources */,
 				4E095522253E0340001568FF /* JapHelperApp.swift in Sources */,
 				4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */,
 				4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */,
+				4E757235255874C7009B9777 /* lessonsList.swift in Sources */,
 				4E149477254AABAB00BB10EE /* testButtonAdd.swift in Sources */,
 				4EE2A6E125508A1100A45231 /* lessonsPage(Test).swift in Sources */,
 			);
