@@ -20,35 +20,53 @@ import SwiftUI
    
 // MARK: - DeatilView struct
 struct lessonsPage_Test_: View {
-    var lessons: Lesson
+    var lesson: Lesson
     
     var body: some View {
-        VStack {
-            // Title of the lesson:
-            HStack {
-                Text(lessons.name)
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
-                Spacer()
+        ScrollView {
+            
+            // MARK: - Image Header:
+            GeometryReader { geometry in
+                // Image(lesson)
+                // LOAD THE IMAGE HERE!!!
             }
-            ZStack {
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(Color.offWhite)
-                Text(lessons.info.text)
-                    .font(.system(size: 17))
-            }
-            ZStack {
-                List {
-                    Text("Hello, put here some examples or think about HStack with objects..")
+            
+            
+            // level and something else (like a date)
+            // MARK: - Top level
+            VStack(alignment: .leading) {
+                
+                HStack {
+                    Text("Level:")
+                        .font(.custom("AvenirNext-Demibold", size: 15))
+                        .padding(.leading)
+                    
+                    Text(lesson.info.level.rawValue)
+                        .font(.custom("AvenirNext-Bold", size: 15))
+                        //.fontWeight(.black)
+                    Spacer()
                 }
+                .padding(.top, 20)
+                
+                // MARK: - Title
+                Text(lesson.name)
+                    .font(.custom("AvenirNext-Bold", size: 30))
+                    .lineLimit(nil)
+                    .padding(.top, 10)
+                
+                Text(lesson.info.text)
+                    .font(.system(size: 20))
+                    .lineLimit(nil)
+                    .padding(.top, 30)
+                
             }
+            .padding(.horizontal)
         }
     }
 }
 
 struct lessonsPage_Test__Previews: PreviewProvider {
     static var previews: some View {
-        lessonsPage_Test_(lessons: lessonsData[0])
+        lessonsPage_Test_(lesson: lessonsData[0])
     }
 }

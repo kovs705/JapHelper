@@ -2,19 +2,43 @@
 [
     {
         "name": "Checking #1",
+        "id": 1,
+        "image": "first",
         "info": {
             "level": "N5",
-            "text": "Just the first test of the first object in JSON file with the name of LessonsList.json \n checking for the next line just to keep sure everything works FINE!",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam convallis turpis sed neque elementum scelerisque. Suspendisse libero dui, consectetur vel nunc euismod, consequat tincidunt sem. Morbi ornare diam a tellus maximus vulputate. Proin sed purus \n\nProin vehicula eu orci vitae faucibus. Vestibulum sodales tempor libero. Duis et metus sed augue consequat sagittis. Vivamus blandit viverra dui, vitae ultrices ante tincidunt at. Integer vestibulum suscipit feugiat. ",
             "additionalInfo": ""
+        },
+        "examples": {
+            "first": {
+                "word": "Hello",
+                "translation": "こんにちは"
+            },
+            "second": {
+                "word": "see you!",
+                "translation": "またね!"
+            }
         }
         
     },
     {
         "name": "Your first japanese lesson!",
+        "id": 2,
+        "image": "second",
         "info": {
             "level": "N4",
             "text": "Just to keep sure the second object of json file with name of LessonsList.json works as good as the first object, I will create another one just to keep sure everything is okay and I can go coding",
             "additionalInfo": "Small Tortoiseshell"
+        },
+        "examples": {
+            "first": {
+                "word": "Hello",
+                "translation": "こんにちは"
+            },
+            "second": {
+                "word": "see you!",
+                "translation": "またね!"
+            }
         }
     }
 ]

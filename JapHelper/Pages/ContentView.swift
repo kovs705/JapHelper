@@ -17,12 +17,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-            ScrollView {
-                VStack {
-                    lastAndSearch()
-                    VocabularyAdd()
+                ScrollView {
+                    VStack {
+                        lastAndSearch()
+                        VocabularyAdd()
+                    }
                 }
-            }
                 VStack {
                     Spacer()
                     
@@ -32,8 +32,8 @@ struct ContentView: View {
                     }
                 }
                 .padding()
-            // end of the ScrollVIew
-            .navigationTitle("Japanese")
+                // end of the ScrollVIew
+                .navigationTitle("Japanese")
             }
         }
         

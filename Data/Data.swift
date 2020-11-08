@@ -60,10 +60,47 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+// MARK: - JSON structure for examples (can be changed)
+/*
+ "examples": {
+     "first": {
+         "word": "Hello"
+         "translation": "こんにちは"
+     }
+     "second": {
+         "word": "see you!"
+         "translation": "またね!"
+     }
+ }
+ */
 // MARK: - Lesson Struct
 struct Lesson: Codable {
     let name: String
+    let id: Int
+    
+    fileprivate var imageName: String
+    var image: Image {
+        ImageStore.shared.image(name: imageName)
+    }
+    
     let info: Info
+    let examples: Examples
+    
+    struct Examples: Codable {
+        let first: First
+        let second: Second
+        
+        //struct for the first example
+        struct First: Codable {
+            let word: String
+            let translation: String
+        }
+        // struct for the second example
+        struct Second: Codable {
+            let word: String
+            let translation: String
+        }
+    }
     
     struct Info: Codable {
         let level: Level
