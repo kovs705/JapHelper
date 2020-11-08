@@ -27,9 +27,28 @@ struct lessonsPage_Test_: View {
             
             // MARK: - Image Header:
             GeometryReader { geometry in
-                // Image(lesson)
-                // LOAD THE IMAGE HERE!!!
+                VStack {
+                    // if we didn't scroll or went downwards anyway:
+                    if geometry.frame(in: .global).minY <= 0 {
+                        lesson.image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                            .offset(y: geometry.frame(in: .global).minY/25)
+                            .clipped()
+                    } else {
+                        // if we scrolled over the top:
+                        lesson.image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    // adding the current minY value of our ScrollView’s GeometryReader to the height of our Image’s .frame modifier:
+                            .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
+                            .clipped()
+                            .offset(y: -geometry.frame(in: .global).minY)
+                    }
+                }
             }
+            .frame(height: 400)
             
             
             // level and something else (like a date)
@@ -62,6 +81,8 @@ struct lessonsPage_Test_: View {
             }
             .padding(.horizontal)
         }
+        .edgesIgnoringSafeArea(.top)
+        // end of ScrollView
     }
 }
 

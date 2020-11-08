@@ -79,9 +79,6 @@ struct Lesson: Codable {
     let id: Int
     
     fileprivate var imageName: String
-    var image: Image {
-        ImageStore.shared.image(name: imageName)
-    }
     
     let info: Info
     let examples: Examples
@@ -115,6 +112,11 @@ struct Lesson: Codable {
                             case N1 = "N1"
                             
         }
+    }
+}
+extension Lesson {
+    var image: Image {
+        ImageStore.shared.image(name: imageName)
     }
 }
 

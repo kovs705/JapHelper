@@ -3,7 +3,7 @@
     {
         "name": "Checking #1",
         "id": 1,
-        "image": "first",
+        "imageName": "first",
         "info": {
             "level": "N5",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam convallis turpis sed neque elementum scelerisque. Suspendisse libero dui, consectetur vel nunc euismod, consequat tincidunt sem. Morbi ornare diam a tellus maximus vulputate. Proin sed purus \n\nProin vehicula eu orci vitae faucibus. Vestibulum sodales tempor libero. Duis et metus sed augue consequat sagittis. Vivamus blandit viverra dui, vitae ultrices ante tincidunt at. Integer vestibulum suscipit feugiat. ",
@@ -24,7 +24,7 @@
     {
         "name": "Your first japanese lesson!",
         "id": 2,
-        "image": "second",
+        "imageName": "second",
         "info": {
             "level": "N4",
             "text": "Just to keep sure the second object of json file with name of LessonsList.json works as good as the first object, I will create another one just to keep sure everything is okay and I can go coding",
