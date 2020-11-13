@@ -38,14 +38,25 @@ struct lessonsPage_Test_: View {
     var lesson: Lesson
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    var buttonBack: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "chevron.left.circle.fill")
+                .font(.system(size: 25))
+                .foregroundColor(.red)
+        }
+    }
+    
     var body: some View {
-        ScrollView {
-            
-            // MARK: - Image Header:
-            GeometryReader { geometry in
-                VStack {
-                    // if we didn't scroll or went downwards anyway:
-                    if geometry.frame(in: .global).minY <= 0 {
+        // ZStack {
+            ScrollView {
+                
+                // MARK: - Image Header:
+                GeometryReader { geometry in
+                    VStack {
+                        // if we didn't scroll or went downwards anyway:
+                        if geometry.frame(in: .global).minY <= 0 {
                         lesson.image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -96,19 +107,39 @@ struct lessonsPage_Test_: View {
                     //.fixedSize(horizontal: false, vertical: true)
                 
                 // MARK: - Example List
-                // listOfExamples(lesson: $0.lessonsData)
+                List {
+                    // first object:
+                    HStack {
+                        Text(lesson.examples.first.word)
+                        Spacer()
+                        Text(lesson.examples.first.translation)
+                    }
+                    .padding(.horizontal)
+                    // second object:
+                    HStack {
+                        Text(lesson.examples.second.word)
+                        Spacer()
+                        Text(lesson.examples.second.translation)
+                    }
+                    .padding(.horizontal)
+                }
+                .frame(height: 100)
             }
             .padding(.horizontal)
-        }
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
-        .edgesIgnoringSafeArea(.top)
+                
+                
+                // .navigationBarItems(leading: buttonBack)
+            }
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+            //.navigationBarItems(leading: buttonBack)
+            .edgesIgnoringSafeArea(.top)
         // end of ScrollView
     }
 }
   
    
-   struct listOfExamples {
+struct listOfExamples {
     var lesson: Lesson
     
     var body: some View {

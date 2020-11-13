@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+
 struct lessonsList: View {
-    
     var lesson: Lesson
     
     var body: some View {
