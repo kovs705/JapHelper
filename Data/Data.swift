@@ -26,13 +26,6 @@ extension Color {
     }
 }
 
-// let redCOlor = UIColor(named: "redColor")
-// let brownColor = UIColor(named: "brownColor")
-// let oliveGreen = UIColor(named: "oliveGreen")
-// let offWhite = UIColor(named: "offWhite")
-// let navyBlue = UIColor(named: "navyBlue")
-
-
 
 // MARK: - Load the lesson from JSON file:
 let lessonsData: [Lesson] = load("lessonsData.json")
@@ -60,19 +53,8 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
-// MARK: - JSON structure for examples (can be changed)
-/*
- "examples": {
-     "first": {
-         "word": "Hello"
-         "translation": "こんにちは"
-     }
-     "second": {
-         "word": "see you!"
-         "translation": "またね!"
-     }
- }
- */
+
+
 // MARK: - Lesson Struct
 struct Lesson: Codable, Identifiable {
     let name: String

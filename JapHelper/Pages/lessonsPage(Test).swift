@@ -50,13 +50,13 @@ struct lessonsPage_Test_: View {
     
     var body: some View {
         // ZStack {
-            ScrollView {
-                
-                // MARK: - Image Header:
-                GeometryReader { geometry in
-                    VStack {
-                        // if we didn't scroll or went downwards anyway:
-                        if geometry.frame(in: .global).minY <= 0 {
+        ScrollView {
+            
+            // MARK: - Image Header:
+            GeometryReader { geometry in
+                VStack {
+                    // if we didn't scroll or went downwards anyway:
+                    if geometry.frame(in: .global).minY <= 0 {
                         lesson.image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -68,7 +68,7 @@ struct lessonsPage_Test_: View {
                         lesson.image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                    // adding the current minY value of our ScrollView’s GeometryReader to the height of our Image’s .frame modifier:
+                            // adding the current minY value of our ScrollView’s GeometryReader to the height of our Image’s .frame modifier:
                             .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
                             .clipped()
                             .offset(y: -geometry.frame(in: .global).minY)
@@ -104,7 +104,7 @@ struct lessonsPage_Test_: View {
                     .font(.system(size: 20))
                     .lineLimit(nil)
                     .padding(.top, 30)
-                    //.fixedSize(horizontal: false, vertical: true)
+                //.fixedSize(horizontal: false, vertical: true)
                 
                 // MARK: - Example List
                 List {
@@ -129,17 +129,17 @@ struct lessonsPage_Test_: View {
                 
                 
                 // .navigationBarItems(leading: buttonBack)
-            }
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
-            //.navigationBarItems(leading: buttonBack)
-            .edgesIgnoringSafeArea(.top)
+        }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        //.navigationBarItems(leading: buttonBack)
+        .edgesIgnoringSafeArea(.top)
         // end of ScrollView
     }
 }
-  
    
-struct listOfExamples {
+   
+   struct listOfExamples {
     var lesson: Lesson
     
     var body: some View {

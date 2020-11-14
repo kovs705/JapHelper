@@ -49,7 +49,7 @@ struct VocabularyAdd: View {
                         .foregroundColor(.red)
                 }
                 //.alert(isPresented: $showingAlert) {
-                    // alert()
+                // alert()
                 // }
             }
             .padding()

@@ -14,6 +14,8 @@ struct ContentView: View {
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
     
+    // @State var lessons = lessonsData
+    
     var body: some View {
         NavigationView {
             ZStack {

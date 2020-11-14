@@ -14,7 +14,7 @@ struct JapHelperApp: App {
 
     var body: some Scene {
         WindowGroup {
-            lessonsList(lesson: lessonsData[0])
+            lessonsList()
                 //.environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

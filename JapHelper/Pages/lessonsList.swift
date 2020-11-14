@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-
 struct lessonsList: View {
-    var lesson: Lesson
+    private var lesson: [Lesson] = []
     
     var body: some View {
         NavigationView {
@@ -22,9 +21,10 @@ struct lessonsList: View {
         }
     }
 }
-
+/*
 struct lessonsList_Previews: PreviewProvider {
     static var previews: some View {
         lessonsList(lesson: lessonsData[0])
     }
 }
+ */
