@@ -1,29 +1,7 @@
-   
-   // OBJECTS IN JSON:
-   
-    /*
-     name
-        info:
-            level
-            text
-            additionalInfo
-     end
-     */
-   
-   // EXAMPLES IN JSON
-   
-   /*
-    "examples": {
-        "first": {
-            "word": "Hello",
-            "translation": "こんにちは"
-        },
-        "second": {
-            "word": "see you!",
-            "translation": "またね!"
-        }
-    }
-    */
+
+
+
+
 
 import SwiftUI
    // MARK: - Instructions
@@ -35,7 +13,9 @@ import SwiftUI
    
 // MARK: - DeatilView struct
 struct lessonsPage_Test_: View {
+    @EnvironmentObject var userData: UserData
     var lesson: Lesson
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var buttonBack: some View {
@@ -168,6 +148,8 @@ struct lessonsPage_Test_: View {
 
 struct lessonsPage_Test__Previews: PreviewProvider {
     static var previews: some View {
-        lessonsPage_Test_(lesson: lessonsData[0])
+        let userData = UserData()
+        return lessonsPage_Test_(lesson: userData.lessons[0])
+            .environmentObject(userData)
     }
 }

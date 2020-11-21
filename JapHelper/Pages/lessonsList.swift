@@ -8,23 +8,29 @@
 import SwiftUI
 
 struct lessonsList: View {
-    private var lesson: [Lesson] = []
+    @EnvironmentObject private var userData: UserData
     
     var body: some View {
         NavigationView {
-            List(lessonsData) { lesson in
-                NavigationLink(destination: lessonsPage_Test_(lesson: lesson)) {
-                    lessonRow(lesson: lesson)
+            List {
+                ForEach(userData.lessons) { lesson in
+                    NavigationLink(destination: lessonsPage_Test_(lesson: lesson)
+                                    .environmentObject(self.userData)
+                    ) {
+                        lessonRow(lesson: lesson)
+                    }
                 }
             }
+            
             .navigationTitle("Lessons list")
         }
     }
 }
-/*
+
 struct lessonsList_Previews: PreviewProvider {
     static var previews: some View {
-        lessonsList(lesson: lessonsData[0])
+        lessonsList()
+            .environmentObject(UserData())
     }
 }
- */
+

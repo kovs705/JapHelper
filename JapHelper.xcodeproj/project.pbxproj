@@ -23,6 +23,7 @@
 		4E75723825587539009B9777 /* lessonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E75723725587539009B9777 /* lessonRow.swift */; };
 		4EA6A51F254B05CD00D9B727 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6A51E254B05CD00D9B727 /* Data.swift */; };
 		4EE2A6E125508A1100A45231 /* lessonsPage(Test).swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */; };
+		4EF6117E25696F7200B5DA09 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6117D25696F7200B5DA09 /* UserData.swift */; };
 		4EF784472540BE0C005BF2E0 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */; };
 		4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */; };
 		4EF784492540BE0C005BF2E0 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */; };
@@ -48,6 +49,7 @@
 		4E75723725587539009B9777 /* lessonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lessonRow.swift; sourceTree = "<group>"; };
 		4EA6A51E254B05CD00D9B727 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "lessonsPage(Test).swift"; sourceTree = "<group>"; };
+		4EF6117D25696F7200B5DA09 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				4E149473254AA9BC00BB10EE /* lessonsData.json */,
 				4EA6A51E254B05CD00D9B727 /* Data.swift */,
+				4EF6117D25696F7200B5DA09 /* UserData.swift */,
 				4E70C48D255806A000EA87E0 /* first.jpg */,
 			);
 			path = Data;
@@ -233,6 +236,7 @@
 				4E095522253E0340001568FF /* JapHelperApp.swift in Sources */,
 				4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */,
 				4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */,
+				4EF6117E25696F7200B5DA09 /* UserData.swift in Sources */,
 				4E757235255874C7009B9777 /* lessonsList.swift in Sources */,
 				4E149477254AABAB00BB10EE /* testButtonAdd.swift in Sources */,
 				4EE2A6E125508A1100A45231 /* lessonsPage(Test).swift in Sources */,

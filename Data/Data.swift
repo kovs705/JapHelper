@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 // MARK: - Colors
 extension Color {
@@ -29,6 +30,7 @@ extension Color {
 
 // MARK: - Load the lesson from JSON file:
 let lessonsData: [Lesson] = load("lessonsData.json")
+// let dataLesson
 
 
 // MARK: - Loading from JSON

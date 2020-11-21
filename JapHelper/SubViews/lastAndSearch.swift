@@ -15,7 +15,7 @@ struct lastAndSearch: View {
             VStack {
                 HStack {
                     Button(action: {
-                        // 
+                        // NavigationLink(destination: lessonsPage_Test_(lesson: ))
                     }) {
                         RoundedRectangle(cornerRadius: 25)
                             .fill(Color.red)
