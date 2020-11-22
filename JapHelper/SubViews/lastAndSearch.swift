@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct lastAndSearch: View {
-    // var lesson: Lesson
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    Button(action: {
-                        // NavigationLink(destination: lessonsPage_Test_(lesson: ))
-                    }) {
+                    NavigationLink(destination: lessonsList().environmentObject(UserData()), label: {
                         RoundedRectangle(cornerRadius: 25)
                             .fill(Color.red)
                             .frame(width: 210, height: 240)
                             .padding()
-                    }
+                    })
                     
                     VStack {
                         RoundedRectangle(cornerRadius: 20)
@@ -41,5 +38,6 @@ struct lastAndSearch: View {
 struct lastAndSearch_Previews: PreviewProvider {
     static var previews: some View {
         lastAndSearch()
+            .environmentObject(UserData())
     }
 }

@@ -10,12 +10,14 @@ import UIKit
 
 @main
 struct JapHelperApp: App {
-    //let persistenceController = PersistenceController.shared
+    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            lessonsList().environmentObject(UserData())
-                //.environment(\.managedObjectContext, persistenceController.container.viewContext)
+            //lessonsList().environmentObject(UserData())
+            ContentView()
+                //.environmentObject(UserData())
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

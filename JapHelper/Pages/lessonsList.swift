@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct lessonsList: View {
-    @EnvironmentObject private var userData: UserData
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(userData.lessons) { lesson in
                     NavigationLink(destination: lessonsPage_Test_(lesson: lesson)
-                                    .environmentObject(self.userData)
+                                    .environmentObject(UserData())
                     ) {
                         lessonRow(lesson: lesson)
                     }
