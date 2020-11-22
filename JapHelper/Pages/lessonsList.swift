@@ -11,7 +11,6 @@ struct lessonsList: View {
     @EnvironmentObject var userData: UserData
     
     var body: some View {
-        NavigationView {
             List {
                 ForEach(userData.lessons) { lesson in
                     NavigationLink(destination: lessonsPage_Test_(lesson: lesson)
@@ -23,7 +22,6 @@ struct lessonsList: View {
             }
             
             .navigationTitle("Lessons list")
-        }
     }
 }
 

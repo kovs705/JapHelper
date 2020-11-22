@@ -24,12 +24,13 @@ struct ContentView: View {
                         VStack {
                             HStack {
                                 NavigationLink(destination: lessonsList()
-                                                .environmentObject(UserData()), label: {
-                                                    RoundedRectangle(cornerRadius: 25)
-                                                        .fill(Color.red)
-                                                        .frame(width: 210, height: 240)
-                                                        .padding()
-                                                })
+                                                .environmentObject(UserData()),
+                                               label: {
+                                                RoundedRectangle(cornerRadius: 25)
+                                                    .fill(Color.red)
+                                                    .frame(width: 210, height: 240)
+                                                    .padding()
+                                               })
                                 
                                 VStack {
                                     RoundedRectangle(cornerRadius: 20)
