@@ -70,6 +70,13 @@ struct lessonsPage_Test_: View {
                     Text(lesson.info.level.rawValue)
                         .font(.custom("AvenirNext-Bold", size: 15))
                     Spacer()
+                    
+                    ZStack {
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 30, height: 30)
+                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 5, y: 5)
+                    }
                 }
                 .padding(.top, 20)
                 

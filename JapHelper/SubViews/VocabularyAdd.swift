@@ -18,19 +18,20 @@ struct VocabularyAdd: View {
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
     
-    private func alert() {
+    static func alert(title: String, message: String) {
         let alert = UIAlertController(title: "Create a group..", message: "Add", preferredStyle: .alert)
         alert.addTextField() { textField in
             textField.placeholder = "Group name.."
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
+        
     }
     
     let quickList = ["Adjectives", "Verbs", "Nouns"]
     
     @State var showingAlert = false
     
-    // TODO: quick list of your vocabulary + abbility to create the new list (or group)
+    // TODO: quick list of your vocabulary + abbility to create the new list
     var body: some View {
         VStack {
             HStack {
@@ -41,17 +42,15 @@ struct VocabularyAdd: View {
                 Spacer()
                 
                 Button(action: {
-                    // create a list with alert:
-                    self.showingAlert = true
+                    // alert()
                 }) {
                     Image(systemName: "plus")
                         .font(.system(size: 24))
                         .foregroundColor(.red)
                 }
-                //.alert(isPresented: $showingAlert) {
-                // alert()
-                // }
-            }
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("List name.."), message: nil, dismissButton: .cancel())
+                }            }
             .padding()
             // end of HStack
             List {

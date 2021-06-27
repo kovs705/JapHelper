@@ -3,6 +3,7 @@
     {
         "name": "Checking #1",
         "id": 1,
+        "chapter":"Introduction",
         "imageName": "first",
         "info": {
             "level": "N5",
@@ -24,9 +25,10 @@
     {
         "name": "Your first japanese lesson!",
         "id": 2,
+        "chapter":"Introduction",
         "imageName": "",
         "info": {
-            "level": "N4",
+            "level": "N5",
             "text": "Just to keep sure the second object of json file with name of LessonsList.json works as good as the first object, I will create another one just to keep sure everything is okay and I can go coding",
             "additionalInfo": "Small Tortoiseshell"
         },

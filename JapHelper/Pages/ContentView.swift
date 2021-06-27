@@ -29,17 +29,19 @@ struct ContentView: View {
                                                 RoundedRectangle(cornerRadius: 25)
                                                     .fill(Color.red)
                                                     .frame(width: 210, height: 240)
-                                                    .padding()
+                                                    .padding(10)
                                                })
                                 
                                 VStack {
+                                    // upper rectangle:
                                     RoundedRectangle(cornerRadius: 20)
                                         .fill(Color.blue)
-                                        .frame(width: 90, height: 90)
-                                        .padding(.vertical)
+                                        .frame(width: 100, height: 110)
+                                        .padding(.vertical, 5)
+                                    // lower rectangle
                                     RoundedRectangle(cornerRadius: 20)
                                         .fill(Color.black)
-                                        .frame(width: 90, height: 90)
+                                        .frame(width: 100, height: 110)
                                 }
                             }
                             
@@ -64,6 +66,7 @@ struct ContentView: View {
     }
     
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

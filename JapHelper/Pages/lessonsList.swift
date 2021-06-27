@@ -11,18 +11,18 @@ struct lessonsList: View {
     @EnvironmentObject var userData: UserData
     
     var body: some View {
-            List {
-                ForEach(userData.lessons) { lesson in
-                    NavigationLink(destination: lessonsPage_Test_(lesson: lesson)
-                                    .environmentObject(UserData())
-                    ) {
-                        lessonRow(lesson: lesson)
-                    }
+        List {
+            ForEach(userData.lessons) { lesson in
+                NavigationLink(destination: lessonsPage_Test_(lesson: lesson)
+                                .environmentObject(UserData())) {
+                    lessonRow(lesson: lesson)
                 }
             }
-            
-            .navigationTitle("Lessons list")
+        }
+        .navigationTitle("Lessons list")
+        .listStyle(GroupedListStyle())
     }
+    // end of List
 }
 
 struct lessonsList_Previews: PreviewProvider {

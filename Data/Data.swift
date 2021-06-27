@@ -20,7 +20,7 @@ extension Color {
         return Color(red: 85 / 255, green: 107 / 255, blue: 47 / 255)
     }
     public static var offWhite: Color {
-        return Color(red: 234 / 255, green: 245 / 255, blue: 245 / 255)
+        return Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
     }
     public static var navyBlue: Color {
         return Color(red: 28 / 255, green: 46 / 255, blue: 74 / 255)
@@ -57,10 +57,29 @@ func load<T: Decodable>(_ filename: String) -> T {
 }
 
 
+// MARK: - Lessons Header Struct
+struct LessonsHeader: Codable, Identifiable {
+    let id: UUID
+    let chapter: String
+    let items: [Lesson]
+    
+}
+
+
 // MARK: - Lesson Struct
-struct Lesson: Codable, Identifiable {
+struct Lesson: Codable, Equatable, Identifiable {
+    static func == (lhs: Lesson, rhs: Lesson) -> Bool {
+        if lhs.id == rhs.id {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     let name: String
     let id: Int
+    
+    let chapter: String
     
     fileprivate var imageName: String
     
