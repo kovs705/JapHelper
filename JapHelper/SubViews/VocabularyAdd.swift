@@ -30,6 +30,8 @@ struct VocabularyAdd: View {
     let quickList = ["Adjectives", "Verbs", "Nouns"]
     
     @State var showingAlert = false
+    @State var groupName: String = ""
+    @State private var visible = false
     
     // TODO: quick list of your vocabulary + abbility to create the new list
     var body: some View {
@@ -42,17 +44,29 @@ struct VocabularyAdd: View {
                 Spacer()
                 
                 Button(action: {
-                    // alert()
+                    withAnimation {
+                        self.visible.toggle()
+                    }
                 }) {
                     Image(systemName: "plus")
                         .font(.system(size: 24))
                         .foregroundColor(.red)
                 }
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("List name.."), message: nil, dismissButton: .cancel())
-                }            }
+                
+            }
             .padding()
-            // end of HStack
+            
+            if visible {
+                    TextField("Group name..", text: $groupName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                        .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
+                        .frame(height: 75)
+                // focus keyboard on click
+                
+            }
+                
+            
             List {
                 ForEach(groups, id: (\.self)) { group in
                     HStack {
@@ -71,3 +85,14 @@ struct VocabularyAdd_Previews: PreviewProvider {
         VocabularyAdd()
     }
 }
+/*
+struct MyTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            // .padding(10)
+            .background(Color.offWhite)
+            .cornerRadius(10)
+            .foregroundColor(.black)
+    }
+}
+ */

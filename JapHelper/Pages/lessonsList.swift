@@ -17,6 +17,7 @@ struct lessonsList: View {
                                 .environmentObject(UserData())) {
                     lessonRow(lesson: lesson)
                 }
+                .padding(.horizontal)
             }
         }
         .navigationTitle("Lessons list")

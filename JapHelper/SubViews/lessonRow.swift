@@ -13,9 +13,9 @@ struct lessonRow: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.offWhite)
-                .frame(width: 300, height: 70)
+            //RoundedRectangle(cornerRadius: 20)
+             //   .fill(Color.offWhite)
+              //  .frame(width: 300, height: 70)
             HStack {
                 if lesson.image == nil {
                     lessonsData[0].image

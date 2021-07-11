@@ -26,26 +26,43 @@ struct ContentView: View {
                                 NavigationLink(destination: lessonsList()
                                                 .environmentObject(UserData()),
                                                label: {
-                                                RoundedRectangle(cornerRadius: 25)
-                                                    .fill(Color.red)
-                                                    .frame(width: 210, height: 240)
-                                                    .padding(10)
+                                                ZStack {
+                                                    RoundedRectangle(cornerRadius: 25)
+                                                        .fill(Color.red)
+                                                        .frame(width: 210, height: 230)
+                                                        .padding(10)
+                                                    Image(systemName: "books.vertical")
+                                                        .font(.system(size: 75))
+                                                        .foregroundColor(.white)
+                                                }
                                                })
                                 
                                 VStack {
                                     // upper rectangle:
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.blue)
-                                        .frame(width: 100, height: 110)
-                                        .padding(.vertical, 5)
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .fill(Color.blue)
+                                            .frame(width: 100, height: 100)
+                                            .padding(.vertical, 5)
+                                        Image(systemName: "camera")
+                                            .font(.system(size: 40))
+                                            .foregroundColor(.white)
+                                    }
                                     // lower rectangle
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.black)
-                                        .frame(width: 100, height: 110)
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .fill(Color.black)
+                                            .frame(width: 100, height: 100)
+                                        Image(systemName: "list.bullet.below.rectangle")
+                                            .font(.system(size: 40))
+                                            .foregroundColor(.white)
+                                    }
                                 }
                             }
                             
                         }
+                        
+                        // end of rectangles
                         
                         VocabularyAdd()
                     }
