@@ -67,6 +67,8 @@ struct ContentView: View {
                         VocabularyAdd()
                     }
                 }
+                // end of ScrollView
+                
                 // floating button:
                 VStack {
                     Spacer()
