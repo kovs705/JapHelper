@@ -7,6 +7,9 @@
 
 import SwiftUI
 import CoreData
+import Combine
+
+
   
 struct ContentView: View {
     
@@ -14,6 +17,10 @@ struct ContentView: View {
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
     @EnvironmentObject var userData: UserData
+    
+    @State private var visible: Bool = false
+    @State private var keyboardHeight: CGFloat = 0
+    @State var groupName: String = ""
     
     var body: some View {
         NavigationView {
@@ -64,7 +71,43 @@ struct ContentView: View {
                         
                         // end of rectangles
                         
-                        VocabularyAdd()
+                        VStack {
+                            HStack {
+                                Text("Vocabulary")
+                                    .font(.system(size: 23))
+                                    .bold()
+                                
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                            
+                            if visible {
+                                    TextField("Group name..", text: $groupName)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        
+                                        .padding(.horizontal)
+                                        .padding(.bottom, keyboardHeight)
+                                        .onReceive(Publishers.keyboardHeight) {
+                                            self.keyboardHeight = $0
+                                        }
+                                        
+                                        .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
+                                        .frame(height: 100)
+                                // focus keyboard on click
+                                
+                            }
+                                
+                            
+                            List {
+                                ForEach(groups, id: \.self) { group in
+                                    HStack {
+                                        Text(group.name ?? "Unknown name")
+                                            .font(.headline)
+                                    }
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
                     }
                 }
                 // end of ScrollView
@@ -74,7 +117,7 @@ struct ContentView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        testButtonAdd()
+                        AddGroupButton(visible: $visible)
                     }
                 }
                 .padding()
@@ -91,5 +134,24 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(UserData())
+    }
+}
+
+extension Notification {
+    var keyboardHeight: CGFloat {
+        return (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
+    }
+}
+
+extension Publishers {
+    static var keyboardHeight: AnyPublisher<CGFloat, Never> {
+        
+        let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+            .map { $0.keyboardHeight }
+        let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
+            .map { _ in CGFloat(0) }
+        
+        return MergeMany(willShow, willHide)
+            .eraseToAnyPublisher()
     }
 }

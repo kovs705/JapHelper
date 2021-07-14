@@ -7,7 +7,15 @@
 
 import SwiftUI
 
-struct testButtonAdd: View {
+class VisibleToggle: ObservableObject {
+    @Published var visible: Bool = false
+}
+
+struct AddGroupButton: View {
+    
+    @Binding var visible: Bool
+    // @StateObject var visible = VisibleToggle()
+    
     var body: some View {
         Button(action: add) {
             ZStack {
@@ -27,12 +35,15 @@ struct testButtonAdd: View {
     }
     
     func add() {
-        print("Hello")
+        visible.toggle()
     }
 }
 
 struct testButtonAdd_Previews: PreviewProvider {
+    
+    @State private var visible: Bool = false
+    
     static var previews: some View {
-        testButtonAdd()
+        AddGroupButton(visible: .constant(false))
     }
 }
