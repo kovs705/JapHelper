@@ -18,14 +18,6 @@ struct VocabularyAdd: View {
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
     
-    static func alert(title: String, message: String) {
-        let alert = UIAlertController(title: "Create a group..", message: "Add", preferredStyle: .alert)
-        alert.addTextField() { textField in
-            textField.placeholder = "Group name.."
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
-        
-    }
     
     let quickList = ["Adjectives", "Verbs", "Nouns"]
     
@@ -68,10 +60,10 @@ struct VocabularyAdd: View {
                 
             
             List {
-                ForEach(groups, id: (\.self)) { group in
+                ForEach(groups, id: \.self) { group in
                     HStack {
-                        Text("\(groups.count)")
-                        
+                        Text(group.name ?? "Unknown name")
+                            .font(.headline)
                     }
                 }
             }
@@ -95,4 +87,14 @@ struct MyTextFieldStyle: TextFieldStyle {
             .foregroundColor(.black)
     }
 }
+ 
+ static func alert(title: String, message: String) {
+     let alert = UIAlertController(title: "Create a group..", message: "Add", preferredStyle: .alert)
+     alert.addTextField() { textField in
+         textField.placeholder = "Group name.."
+     }
+     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
+     
+ }
+ 
  */
