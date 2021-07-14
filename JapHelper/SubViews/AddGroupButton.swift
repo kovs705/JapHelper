@@ -14,10 +14,9 @@ class VisibleToggle: ObservableObject {
 struct AddGroupButton: View {
     
     @Binding var visible: Bool
-    // @StateObject var visible = VisibleToggle()
     
     var body: some View {
-        Button(action: add) {
+        Button(action: toggleIt) {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.blue)
@@ -34,7 +33,7 @@ struct AddGroupButton: View {
         }
     }
     
-    func add() {
+    func toggleIt() {
         visible.toggle()
     }
 }
@@ -47,3 +46,5 @@ struct testButtonAdd_Previews: PreviewProvider {
         AddGroupButton(visible: .constant(false))
     }
 }
+
+

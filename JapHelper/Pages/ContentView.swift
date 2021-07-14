@@ -10,18 +10,28 @@ import CoreData
 import Combine
 
 
-  
+// MARK: - ContentView struct
 struct ContentView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.managedObjectContext) var viewContext
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
     @EnvironmentObject var userData: UserData
+    
+    @Environment(\.presentationMode) var presentationMode
     
     @State private var visible: Bool = false
     @State private var keyboardHeight: CGFloat = 0
     @State var groupName: String = ""
     
+    func add() {
+        let newGroup = Group(context: self.viewContext)
+        newGroup.name = self.groupName
+        
+        try? self.viewContext.save()
+    }
+    
+    // MARK: - Body
     var body: some View {
         NavigationView {
             ZStack {
@@ -43,9 +53,9 @@ struct ContentView: View {
                                                         .foregroundColor(.white)
                                                 }
                                                })
-                                
+                                // MARK: - Rectangles
                                 VStack {
-                                    // upper rectangle:
+                                    // upper rectangles:
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 20)
                                             .fill(Color.blue)
@@ -71,6 +81,7 @@ struct ContentView: View {
                         
                         // end of rectangles
                         
+                        // MARK: - Vocabulary
                         VStack {
                             HStack {
                                 Text("Vocabulary")
@@ -82,6 +93,11 @@ struct ContentView: View {
                             .padding(.horizontal)
                             
                             if visible {
+                            
+                            
+                                // ФОКУСИРОВКА НА КЛАВИАТУРУ И ИЗМЕНЕНИЕ ЦВЕТА КНОПКУ ДОБАВЛЕНИЯ ГРУППЫ
+                                
+                                
                                     TextField("Group name..", text: $groupName)
                                         .textFieldStyle(RoundedBorderTextFieldStyle())
                                         
@@ -97,7 +113,7 @@ struct ContentView: View {
                                 
                             }
                                 
-                            
+                            // MARK: - List of groups
                             List {
                                 ForEach(groups, id: \.self) { group in
                                     HStack {
@@ -112,12 +128,31 @@ struct ContentView: View {
                 }
                 // end of ScrollView
                 
+                // MARK: - Floating Button
                 // floating button:
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
-                        AddGroupButton(visible: $visible)
+                        if !visible {
+                            AddGroupButton(visible: $visible)
+                        } else {
+                            Button(action: add) {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color.redColor)
+                                    HStack {
+                                        Image(systemName: "checkmark")
+                                            .foregroundColor(.white)
+                                        Text("Add group")
+                                            .foregroundColor(.white)
+                                            .bold()
+                                            .lineLimit(0)
+                                    }
+                                }
+                                .frame(width: 140, height: 45)
+                            }
+                        }
                     }
                 }
                 .padding()
@@ -136,6 +171,8 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(UserData())
     }
 }
+
+// MARK: - Extensions
 
 extension Notification {
     var keyboardHeight: CGFloat {
