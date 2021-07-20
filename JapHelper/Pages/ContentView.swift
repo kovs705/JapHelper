@@ -8,6 +8,13 @@
 import SwiftUI
 import CoreData
 import Combine
+import UIKit
+
+// MARK: - Instructions
+    ///
+    ///
+    ///
+//
 
 
 // MARK: - ContentView struct
@@ -24,11 +31,18 @@ struct ContentView: View {
     @State private var keyboardHeight: CGFloat = 0
     @State var groupName: String = ""
     
+    @State private var buttonState: Bool = false
+    
+    // MARK: - Functions
+
     func add() {
         let newGroup = Group(context: self.viewContext)
         newGroup.name = self.groupName
         
         try? self.viewContext.save()
+    }
+    func changeToggle() {
+        buttonState.toggle()
     }
     
     // MARK: - Body
@@ -52,6 +66,7 @@ struct ContentView: View {
                                                         .font(.system(size: 75))
                                                         .foregroundColor(.white)
                                                 }
+                                                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                                                })
                                 // MARK: - Rectangles
                                 VStack {
@@ -65,6 +80,7 @@ struct ContentView: View {
                                             .font(.system(size: 40))
                                             .foregroundColor(.white)
                                     }
+                                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                                     // lower rectangle
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 20)
@@ -74,6 +90,7 @@ struct ContentView: View {
                                             .font(.system(size: 40))
                                             .foregroundColor(.white)
                                     }
+                                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                                 }
                             }
                             
@@ -87,6 +104,7 @@ struct ContentView: View {
                                 Text("Vocabulary")
                                     .font(.system(size: 23))
                                     .bold()
+                                    .frame(height: 50)
                                 
                                 Spacer()
                             }
@@ -94,27 +112,57 @@ struct ContentView: View {
                             
                             if visible {
                             
-                            
                                 // ФОКУСИРОВКА НА КЛАВИАТУРУ И ИЗМЕНЕНИЕ ЦВЕТА КНОПКУ ДОБАВЛЕНИЯ ГРУППЫ
+                                ZStack {
+                                    // MARK: - Keyboard
+                                TextField("Group name..", text: $groupName, onCommit: {
+                                    // gav
+                                })
                                 
+                                .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
+                                .frame(width: UIScreen.main.bounds.width - 80, height: 55)
+                                .contentShape(Rectangle())
+                                .padding(.horizontal)
+                                .background(Color.white)
+                                .cornerRadius(20)
                                 
-                                    TextField("Group name..", text: $groupName)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        
-                                        .padding(.horizontal)
-                                        .padding(.bottom, keyboardHeight)
-                                        .onReceive(Publishers.keyboardHeight) {
-                                            self.keyboardHeight = $0
-                                        }
-                                        
-                                        .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
-                                        .frame(height: 100)
+                                .lineLimit(1)
+                                .scaleEffect(self.buttonState ? 0.95 : 1.0)
+                                
+                                .font(.system(size: 18))
+                                /*
+                                .onLongPressGesture(minimumDuration: 2.5, maximumDistance: 0.1, pressing: { pressing in
+                                    withAnimation(.easeInOut(duration: 0.5)) {
+                                        self.buttonState = pressing
+                                    }
+                                }, perform: {})
+                                */
+                                
+                                .animation(.easeIn)
+                                
+                                // .padding(.horizontal)
+                                .padding(.bottom, keyboardHeight)
+                                
+                                .onReceive(Publishers.keyboardHeight) {
+                                    self.keyboardHeight = $0
+                                }
+                                
+                                .padding(.horizontal)
+                                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                                .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
+                                // .frame(height: 50)
                                 // focus keyboard on click
-                                
+                                }
+                                .zIndex(-1)
                             }
-                                
+                            
                             // MARK: - List of groups
+                            
                             List {
+                                HStack {
+                                    Text("Unknown name")
+                                        .font(.headline)
+                                }
                                 ForEach(groups, id: \.self) { group in
                                     HStack {
                                         Text(group.name ?? "Unknown name")
@@ -122,7 +170,9 @@ struct ContentView: View {
                                     }
                                 }
                             }
-                            .padding(.horizontal)
+                            .background(Color.offWhite)
+                            // end of the list
+                            .padding()
                         }
                     }
                 }
@@ -171,6 +221,7 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(UserData())
     }
 }
+
 
 // MARK: - Extensions
 

@@ -125,7 +125,8 @@ struct lessonsPage_Test_: View {
     }
 }
    
-   
+// MARK: - List of examples
+
    struct listOfExamples {
     var lesson: Lesson
     

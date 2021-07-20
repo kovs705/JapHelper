@@ -14,18 +14,22 @@ final class UserData: ObservableObject {
 
 
 // MARK: - Garbage
-
-/*
 struct MyTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            // .padding(10)
+            .padding(.horizontal)
             .background(Color.offWhite)
-            .cornerRadius(10)
+            .cornerRadius(15)
             .foregroundColor(.black)
     }
+    var body: some View {
+        ZStack {
+            
+        }
+    }
 }
- 
+
+/*
  static func alert(title: String, message: String) {
      let alert = UIAlertController(title: "Create a group..", message: "Add", preferredStyle: .alert)
      alert.addTextField() { textField in
