@@ -21,11 +21,14 @@ import UIKit
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var viewContext
+    
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
+    
     @EnvironmentObject var userData: UserData
     
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     @State private var visible: Bool = false
     @State private var keyboardHeight: CGFloat = 0
@@ -36,11 +39,31 @@ struct ContentView: View {
     // MARK: - Functions
 
     func add() {
-        let newGroup = Group(context: self.viewContext)
-        newGroup.name = self.groupName
-        
-        try? self.viewContext.save()
+        if groupName.count <= 3 {
+            print("Type more than 3 letter")
+        } else {
+            let newGroup = Group(context: self.viewContext)
+            newGroup.name = self.groupName
+            do {
+                try self.viewContext.save()
+            } catch {
+                print("Error in saving group")
+            }
+        }
     }
+    
+    func deleteGroup(at offsets: IndexSet) {
+        for index in offsets {
+            let group = groups[index]
+            viewContext.delete(group)
+        }
+        do {
+            try self.viewContext.save()
+        } catch {
+            print("Something happened on deleting the group!")
+        }
+    }
+    
     func changeToggle() {
         buttonState.toggle()
     }
@@ -68,6 +91,7 @@ struct ContentView: View {
                                                 }
                                                 .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                                                })
+                                    .buttonStyle(AnimatedButton())
                                 // MARK: - Rectangles
                                 VStack {
                                     // upper rectangles:
@@ -81,17 +105,22 @@ struct ContentView: View {
                                             .foregroundColor(.white)
                                     }
                                     .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
-                                    // lower rectangle
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .fill(Color.black)
-                                            .frame(width: 100, height: 100)
-                                        Image(systemName: "list.bullet.below.rectangle")
-                                            .font(.system(size: 40))
-                                            .foregroundColor(.white)
-                                    }
-                                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                                    
+                                    // black lower rectangle
+                                    NavigationLink(destination: ListOfGroups(), label: {
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .fill(Color.black)
+                                                .frame(width: 100, height: 100)
+                                            Image(systemName: "list.bullet.below.rectangle")
+                                                .font(.system(size: 40))
+                                                .foregroundColor(.white)
+                                        }
+                                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                                    })
+                                    .buttonStyle(AnimatedButton())
                                 }
+                                // end of NavLink
                             }
                             
                         }
@@ -116,7 +145,7 @@ struct ContentView: View {
                                 ZStack {
                                     // MARK: - Keyboard
                                 TextField("Group name..", text: $groupName, onCommit: {
-                                    // gav
+                                    add()
                                 })
                                 
                                 .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
@@ -153,26 +182,26 @@ struct ContentView: View {
                                 // .frame(height: 50)
                                 // focus keyboard on click
                                 }
+                                .frame(width: UIScreen.main.bounds.width - 70, height: 60)
                                 .zIndex(-1)
                             }
                             
                             // MARK: - List of groups
-                            
                             List {
-                                HStack {
-                                    Text("Unknown name")
-                                        .font(.headline)
-                                }
                                 ForEach(groups, id: \.self) { group in
                                     HStack {
                                         Text(group.name ?? "Unknown name")
                                             .font(.headline)
                                     }
                                 }
+                                .onDelete(perform: deleteGroup)
                             }
-                            .background(Color.offWhite)
-                            // end of the list
-                            .padding()
+                            .onAppear {
+                                UITableView.appearance().isScrollEnabled = false
+                            }
+                            .padding(.horizontal)
+                            .frame(width: UIScreen.main.bounds.width - 80, height: 360)
+                            .border(Color.red)
                         }
                     }
                 }
@@ -186,6 +215,7 @@ struct ContentView: View {
                         Spacer()
                         if !visible {
                             AddGroupButton(visible: $visible)
+                                .buttonStyle(AnimatedButton())
                         } else {
                             Button(action: add) {
                                 ZStack {
@@ -202,6 +232,7 @@ struct ContentView: View {
                                 }
                                 .frame(width: 140, height: 45)
                             }
+                            .buttonStyle(AnimatedButton())
                         }
                     }
                 }
