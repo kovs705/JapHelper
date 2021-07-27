@@ -11,18 +11,20 @@ struct ListOfGroups: View {
     
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
-    @Environment(\.defaultMinListRowHeight) var minRowHeight
+    
     
     var body: some View {
         ScrollView {
             VStack {
                 List {
                     ForEach(groups, id: \.self) { group in
-                        Text(group.name ?? "Unknown name")
-                            .font(.headline)
+                        Section(header: Text(group.wrappedName)) {
+                            ForEach(group.wordsArray, id: \.self) { word in
+                                Text(word.wrappedExactWord)
+                            }
+                        }
                     }
                 }
-                .frame(height: minRowHeight * 5).border(Color.red)
             }
         }
     }

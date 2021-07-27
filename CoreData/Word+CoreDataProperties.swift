@@ -2,7 +2,7 @@
 //  Word+CoreDataProperties.swift
 //  JapHelper
 //
-//  Created by Kovs on 21.10.2020.
+//  Created by Kovs on 26.07.2021.
 //
 //
 
@@ -21,7 +21,10 @@ extension Word {
     @NSManaged public var group: Group?
     
     public var wrappedExactWord: String {
-        exactWord ?? "Unknown Word"
+        exactWord ?? "Unknown word"
+    }
+    public var wrappedTranslation: String {
+        translation ?? "Unknown translation"
     }
 
 }

@@ -2,7 +2,7 @@
 //  Group+CoreDataProperties.swift
 //  JapHelper
 //
-//  Created by Kovs on 21.10.2020.
+//  Created by Kovs on 26.07.2021.
 //
 //
 
@@ -16,37 +16,38 @@ extension Group {
         return NSFetchRequest<Group>(entityName: "Group")
     }
 
-    @NSManaged public var words: NSSet?
     @NSManaged public var name: String?
-    
+    @NSManaged public var words: NSSet?
     
     public var wrappedName: String {
         name ?? "Unknown group"
     }
     
-    public var groupArray: [Word] {
+    public var wordsArray: [Word] {
         let set = words as? Set<Word> ?? []
         
         return set.sorted {
             $0.wrappedExactWord < $1.wrappedExactWord
         }
     }
- 
 
 }
+
+// MARK: Generated accessors for words
 extension Group {
-    
-    @objc(addWordObject:)
-    @NSManaged public func addToWord(_ value: Word)
-    
-    @objc(removeWordObject:)
-    @NSManaged public func removeFromWord(_ value: Word)
-    
-    @objc(addWord:)
-    @NSManaged public func addToWord(_ value: NSSet)
-    
-    @objc(removeWord:)
-    @NSManaged public func removeFromWord(_ value: NSSet)
+
+    @objc(addWordsObject:)
+    @NSManaged public func addToWords(_ value: Word)
+
+    @objc(removeWordsObject:)
+    @NSManaged public func removeFromWords(_ value: Word)
+
+    @objc(addWords:)
+    @NSManaged public func addToWords(_ values: NSSet)
+
+    @objc(removeWords:)
+    @NSManaged public func removeFromWords(_ values: NSSet)
+
 }
 
 extension Group : Identifiable {

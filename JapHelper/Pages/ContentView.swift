@@ -201,7 +201,7 @@ struct ContentView: View {
                             }
                             .padding(.horizontal)
                             .frame(width: UIScreen.main.bounds.width - 80, height: 360)
-                            .border(Color.red)
+                            // .border(Color.red)
                         }
                     }
                 }

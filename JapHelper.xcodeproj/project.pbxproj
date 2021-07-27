@@ -16,19 +16,19 @@
 		4E095537253E05DD001568FF /* lastAndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E095536253E05DD001568FF /* lastAndSearch.swift */; };
 		4E149474254AA9BC00BB10EE /* lessonsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E149473254AA9BC00BB10EE /* lessonsData.json */; };
 		4E149477254AABAB00BB10EE /* AddGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E149476254AABAB00BB10EE /* AddGroupButton.swift */; };
-		4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */; };
 		4E70C48E255806A000EA87E0 /* first.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E70C48D255806A000EA87E0 /* first.jpg */; };
 		4E757235255874C7009B9777 /* lessonsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E757234255874C7009B9777 /* lessonsList.swift */; };
 		4E75723825587539009B9777 /* lessonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E75723725587539009B9777 /* lessonRow.swift */; };
 		4E8A4781269F218D00C75B9E /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A4780269F218D00C75B9E /* GroupView.swift */; };
+		4E94947426B09BD20025F729 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E94947326B09BD20025F729 /* GroupDetailView.swift */; };
 		4EA6A51F254B05CD00D9B727 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6A51E254B05CD00D9B727 /* Data.swift */; };
+		4EB4B35D26AEF0760060F819 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4B35926AEF0760060F819 /* Group+CoreDataClass.swift */; };
+		4EB4B35E26AEF0760060F819 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4B35A26AEF0760060F819 /* Group+CoreDataProperties.swift */; };
+		4EB4B35F26AEF0760060F819 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4B35B26AEF0760060F819 /* Word+CoreDataClass.swift */; };
+		4EB4B36026AEF0760060F819 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4B35C26AEF0760060F819 /* Word+CoreDataProperties.swift */; };
 		4EE2A6E125508A1100A45231 /* lessonsPage(Test).swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */; };
 		4EE8AF5C26A9D35A00A3A4F7 /* ListOfGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8AF5B26A9D35A00A3A4F7 /* ListOfGroups.swift */; };
 		4EF6117E25696F7200B5DA09 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6117D25696F7200B5DA09 /* UserData.swift */; };
-		4EF784472540BE0C005BF2E0 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */; };
-		4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */; };
-		4EF784492540BE0C005BF2E0 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */; };
-		4EF7844A2540BE0C005BF2E0 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF784462540BE0C005BF2E0 /* Group+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,19 +43,19 @@
 		4E095536253E05DD001568FF /* lastAndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastAndSearch.swift; sourceTree = "<group>"; };
 		4E149473254AA9BC00BB10EE /* lessonsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessonsData.json; sourceTree = "<group>"; };
 		4E149476254AABAB00BB10EE /* AddGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupButton.swift; sourceTree = "<group>"; };
-		4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfWords.swift; sourceTree = "<group>"; };
 		4E70C48D255806A000EA87E0 /* first.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = first.jpg; sourceTree = "<group>"; };
 		4E757234255874C7009B9777 /* lessonsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lessonsList.swift; sourceTree = "<group>"; };
 		4E75723725587539009B9777 /* lessonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lessonRow.swift; sourceTree = "<group>"; };
 		4E8A4780269F218D00C75B9E /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
+		4E94947326B09BD20025F729 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		4EA6A51E254B05CD00D9B727 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		4EB4B35926AEF0760060F819 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4EB4B35A26AEF0760060F819 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4EB4B35B26AEF0760060F819 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4EB4B35C26AEF0760060F819 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "lessonsPage(Test).swift"; sourceTree = "<group>"; };
 		4EE8AF5B26A9D35A00A3A4F7 /* ListOfGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroups.swift; sourceTree = "<group>"; };
 		4EF6117D25696F7200B5DA09 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4EF784462540BE0C005BF2E0 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +127,8 @@
 				4E095523253E0340001568FF /* ContentView.swift */,
 				4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */,
 				4E757234255874C7009B9777 /* lessonsList.swift */,
-				4E6F5EF42540C32100C7CE93 /* ListOfWords.swift */,
 				4EE8AF5B26A9D35A00A3A4F7 /* ListOfGroups.swift */,
+				4E94947326B09BD20025F729 /* GroupDetailView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -147,10 +147,10 @@
 		4EF7844C2540BF2F005BF2E0 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				4EF784432540BE0C005BF2E0 /* Word+CoreDataClass.swift */,
-				4EF784442540BE0C005BF2E0 /* Word+CoreDataProperties.swift */,
-				4EF784452540BE0C005BF2E0 /* Group+CoreDataClass.swift */,
-				4EF784462540BE0C005BF2E0 /* Group+CoreDataProperties.swift */,
+				4EB4B35926AEF0760060F819 /* Group+CoreDataClass.swift */,
+				4EB4B35A26AEF0760060F819 /* Group+CoreDataProperties.swift */,
+				4EB4B35B26AEF0760060F819 /* Word+CoreDataClass.swift */,
+				4EB4B35C26AEF0760060F819 /* Word+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -227,19 +227,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E095537253E05DD001568FF /* lastAndSearch.swift in Sources */,
-				4EF784492540BE0C005BF2E0 /* Group+CoreDataClass.swift in Sources */,
+				4EB4B35E26AEF0760060F819 /* Group+CoreDataProperties.swift in Sources */,
 				4E09552B253E0343001568FF /* Persistence.swift in Sources */,
 				4E09552E253E0343001568FF /* JapHelper.xcdatamodeld in Sources */,
-				4EF784472540BE0C005BF2E0 /* Word+CoreDataClass.swift in Sources */,
 				4E75723825587539009B9777 /* lessonRow.swift in Sources */,
+				4E94947426B09BD20025F729 /* GroupDetailView.swift in Sources */,
+				4EB4B35F26AEF0760060F819 /* Word+CoreDataClass.swift in Sources */,
 				4E095524253E0340001568FF /* ContentView.swift in Sources */,
-				4EF7844A2540BE0C005BF2E0 /* Group+CoreDataProperties.swift in Sources */,
 				4EA6A51F254B05CD00D9B727 /* Data.swift in Sources */,
 				4E095522253E0340001568FF /* JapHelperApp.swift in Sources */,
-				4E6F5EF52540C32100C7CE93 /* ListOfWords.swift in Sources */,
-				4EF784482540BE0C005BF2E0 /* Word+CoreDataProperties.swift in Sources */,
 				4EE8AF5C26A9D35A00A3A4F7 /* ListOfGroups.swift in Sources */,
+				4EB4B36026AEF0760060F819 /* Word+CoreDataProperties.swift in Sources */,
 				4EF6117E25696F7200B5DA09 /* UserData.swift in Sources */,
+				4EB4B35D26AEF0760060F819 /* Group+CoreDataClass.swift in Sources */,
 				4E757235255874C7009B9777 /* lessonsList.swift in Sources */,
 				4E149477254AABAB00BB10EE /* AddGroupButton.swift in Sources */,
 				4E8A4781269F218D00C75B9E /* GroupView.swift in Sources */,

@@ -2,7 +2,7 @@
 //  Word+CoreDataClass.swift
 //  JapHelper
 //
-//  Created by Kovs on 21.10.2020.
+//  Created by Kovs on 26.07.2021.
 //
 //
 
