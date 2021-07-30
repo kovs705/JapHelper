@@ -16,6 +16,7 @@ struct AddGroupButton: View {
     @Binding var visible: Bool
     
     var body: some View {
+        if !visible {
         Button(action: toggleIt) {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -30,6 +31,24 @@ struct AddGroupButton: View {
                 }
             }
             .frame(width: 140, height: 45)
+        }
+        } else {
+            Button(action: toggleIt) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.redColor)
+                    HStack {
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.white)
+                        Text("Add group")
+                            .foregroundColor(.white)
+                            .bold()
+                            .lineLimit(0)
+                    }
+                }
+                .frame(width: 140, height: 45)
+            }
+            .buttonStyle(AnimatedButton())
         }
     }
     

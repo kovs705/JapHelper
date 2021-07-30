@@ -31,6 +31,7 @@ struct ContentView: View {
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     @State private var visible: Bool = false
+    
     @State private var keyboardHeight: CGFloat = 0
     @State var groupName: String = ""
     
@@ -41,11 +42,13 @@ struct ContentView: View {
     func add() {
         if groupName.count <= 3 {
             print("Type more than 3 letter")
+            buttonState.toggle()
         } else {
             let newGroup = Group(context: self.viewContext)
             newGroup.name = self.groupName
             do {
                 try self.viewContext.save()
+                buttonState = false
             } catch {
                 print("Error in saving group")
             }

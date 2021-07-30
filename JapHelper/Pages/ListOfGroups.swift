@@ -12,7 +12,6 @@ struct ListOfGroups: View {
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
     
-    
     var body: some View {
         ScrollView {
             VStack {
