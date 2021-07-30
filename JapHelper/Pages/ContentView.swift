@@ -42,13 +42,13 @@ struct ContentView: View {
     func add() {
         if groupName.count <= 3 {
             print("Type more than 3 letter")
-            buttonState.toggle()
+            visible.toggle()
         } else {
             let newGroup = Group(context: self.viewContext)
             newGroup.name = self.groupName
             do {
                 try self.viewContext.save()
-                buttonState = false
+                visible = false
             } catch {
                 print("Error in saving group")
             }
@@ -170,7 +170,7 @@ struct ContentView: View {
                                 }, perform: {})
                                 */
                                 
-                                .animation(.easeIn)
+                                .animation(.easeInOut)
                                 
                                 // .padding(.horizontal)
                                 .padding(.bottom, keyboardHeight)
@@ -213,6 +213,18 @@ struct ContentView: View {
                 // MARK: - Floating Button
                 // floating button:
                 VStack {
+                    // floating error message when user works with the TextField for creating a group:
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.white)
+                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                            .frame(width:UIScreen.main.bounds.width - 65, height: 75)
+                        
+                        
+                    }
+                    .animation(.easeInOut)
+                    
                     Spacer()
                     HStack {
                         Spacer()
