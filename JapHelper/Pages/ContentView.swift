@@ -43,6 +43,7 @@ struct ContentView: View {
         if groupName.count <= 3 {
             print("Type more than 3 letter")
             visible.toggle()
+            // set timer for 3 seconds to show attention bar on top
         } else {
             let newGroup = Group(context: self.viewContext)
             newGroup.name = self.groupName
@@ -169,7 +170,7 @@ struct ContentView: View {
                                     }
                                 }, perform: {})
                                 */
-                                
+                                // MARK: - check this animation out
                                 .animation(.easeInOut)
                                 
                                 // .padding(.horizontal)
@@ -219,11 +220,21 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 25)
                             .fill(Color.white)
                             .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
-                            .frame(width:UIScreen.main.bounds.width - 65, height: 75)
+                            .frame(width:UIScreen.main.bounds.width - 65, height: 55)
                         
-                        
+                        HStack {
+                            // Two textes with attention
+                            Text("Attention!")
+                                .bold()
+                            Text("Test words")
+                                .font(.system(.caption))
+                        }
+
                     }
+                    .padding(.horizontal)
+                    .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
                     .animation(.easeInOut)
+                    
                     
                     Spacer()
                     HStack {
