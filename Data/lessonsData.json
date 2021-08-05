@@ -3,6 +3,7 @@
     {
         "name": "Checking #1",
         "id": 1,
+        "type": 1,
         "chapter":"Introduction",
         "imageName": "first",
         "info": {
@@ -25,6 +26,7 @@
     {
         "name": "Your first japanese lesson!",
         "id": 2,
+        "type": 1,
         "chapter":"Introduction",
         "imageName": "",
         "info": {

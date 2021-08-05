@@ -15,11 +15,20 @@ struct GroupDetailView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-               // list of words here
+            ZStack {
+                VStack {
+                    // list of words here
+                         
+                }
+                .navigationTitle(group.name ?? "No name")
+                
+                // Sheet view and then two horizontal blocks-islands, where user can write his
+                // hieroglyphic and downwards write the translation
+                // green button to create a new word for the group.
+                
             }
-            .navigationTitle(group.name ?? "No name")
         }
+        // end of NavView
     }
 }
 

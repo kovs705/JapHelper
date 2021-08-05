@@ -31,6 +31,9 @@ struct ContentView: View {
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     @State private var visible: Bool = false
+    @State private var attentionText: String = "There is a bug!"
+    @State private var timeRemaining: Int = 3
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var keyboardHeight: CGFloat = 0
     @State var groupName: String = ""
@@ -51,6 +54,7 @@ struct ContentView: View {
                 try self.viewContext.save()
                 visible = false
             } catch {
+                attentionText = "Error in saving group"
                 print("Error in saving group")
             }
         }
@@ -64,6 +68,7 @@ struct ContentView: View {
         do {
             try self.viewContext.save()
         } catch {
+            attentionText = "Something happened on deleting the group!"
             print("Something happened on deleting the group!")
         }
     }
@@ -225,15 +230,19 @@ struct ContentView: View {
                         HStack {
                             // Two textes with attention
                             Text("Attention!")
+                                .font(.system(.subheadline))
                                 .bold()
-                            Text("Test words")
+                            // Spacer()
+                            Text("\(attentionText)")
                                 .font(.system(.caption))
+                                .lineLimit(2)
                         }
-
+                        .frame(width:UIScreen.main.bounds.width - 80, height: 55)
                     }
                     .padding(.horizontal)
                     .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
                     .animation(.easeInOut)
+                    .frame(width:UIScreen.main.bounds.width - 65, height: 55)
                     
                     
                     Spacer()

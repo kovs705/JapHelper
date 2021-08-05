@@ -79,7 +79,8 @@ struct Lesson: Codable, Equatable, Identifiable {
     let name: String
     let id: Int
     
-    let chapter: String
+    let chapter: String // to sort by groups
+    let type: Int // to show the right lessons page
     
     fileprivate var imageName: String
     

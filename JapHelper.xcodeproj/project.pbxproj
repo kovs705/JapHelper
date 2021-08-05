@@ -16,6 +16,7 @@
 		4E095537253E05DD001568FF /* lastAndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E095536253E05DD001568FF /* lastAndSearch.swift */; };
 		4E149474254AA9BC00BB10EE /* lessonsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E149473254AA9BC00BB10EE /* lessonsData.json */; };
 		4E149477254AABAB00BB10EE /* AddGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E149476254AABAB00BB10EE /* AddGroupButton.swift */; };
+		4E41B07226B5E3EB006AD7D4 /* lessonsPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E41B07126B5E3EB006AD7D4 /* lessonsPage2.swift */; };
 		4E70C48E255806A000EA87E0 /* first.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E70C48D255806A000EA87E0 /* first.jpg */; };
 		4E757235255874C7009B9777 /* lessonsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E757234255874C7009B9777 /* lessonsList.swift */; };
 		4E75723825587539009B9777 /* lessonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E75723725587539009B9777 /* lessonRow.swift */; };
@@ -43,6 +44,7 @@
 		4E095536253E05DD001568FF /* lastAndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastAndSearch.swift; sourceTree = "<group>"; };
 		4E149473254AA9BC00BB10EE /* lessonsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessonsData.json; sourceTree = "<group>"; };
 		4E149476254AABAB00BB10EE /* AddGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupButton.swift; sourceTree = "<group>"; };
+		4E41B07126B5E3EB006AD7D4 /* lessonsPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lessonsPage2.swift; sourceTree = "<group>"; };
 		4E70C48D255806A000EA87E0 /* first.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = first.jpg; sourceTree = "<group>"; };
 		4E757234255874C7009B9777 /* lessonsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lessonsList.swift; sourceTree = "<group>"; };
 		4E75723725587539009B9777 /* lessonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lessonRow.swift; sourceTree = "<group>"; };
@@ -121,14 +123,23 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		4E41B06E26B5E378006AD7D4 /* Lessons Pages */ = {
+			isa = PBXGroup;
+			children = (
+				4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */,
+				4E41B07126B5E3EB006AD7D4 /* lessonsPage2.swift */,
+			);
+			path = "Lessons Pages";
+			sourceTree = "<group>";
+		};
 		4E6F5EF32540C30A00C7CE93 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
 				4E095523253E0340001568FF /* ContentView.swift */,
-				4EE2A6E025508A1100A45231 /* lessonsPage(Test).swift */,
 				4E757234255874C7009B9777 /* lessonsList.swift */,
 				4EE8AF5B26A9D35A00A3A4F7 /* ListOfGroups.swift */,
 				4E94947326B09BD20025F729 /* GroupDetailView.swift */,
+				4E41B06E26B5E378006AD7D4 /* Lessons Pages */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -242,6 +253,7 @@
 				4EB4B35D26AEF0760060F819 /* Group+CoreDataClass.swift in Sources */,
 				4E757235255874C7009B9777 /* lessonsList.swift in Sources */,
 				4E149477254AABAB00BB10EE /* AddGroupButton.swift in Sources */,
+				4E41B07226B5E3EB006AD7D4 /* lessonsPage2.swift in Sources */,
 				4E8A4781269F218D00C75B9E /* GroupView.swift in Sources */,
 				4EE2A6E125508A1100A45231 /* lessonsPage(Test).swift in Sources */,
 			);

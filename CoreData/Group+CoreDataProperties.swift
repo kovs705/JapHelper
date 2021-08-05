@@ -17,7 +17,13 @@ extension Group {
     }
 
     @NSManaged public var name: String?
+    @NSManaged public var note: String?
+    
     @NSManaged public var words: NSSet?
+    
+    public var wrappedNote: String {
+        note ?? "Unknown note"
+    }
     
     public var wrappedName: String {
         name ?? "Unknown group"
