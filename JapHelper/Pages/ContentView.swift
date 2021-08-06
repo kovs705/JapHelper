@@ -12,6 +12,8 @@ import UIKit
 
 // MARK: - Instructions
     ///
+    /// Right now (06.08.2021) I'm working on notification on top of the app, specifically working on timer for it.
+    ///
     ///
     ///
 //
@@ -31,7 +33,8 @@ struct ContentView: View {
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     @State private var visible: Bool = false
-    @State private var attentionText: String = "There is a bug!"
+    @State var attentionText: String = "There is a bug!"
+    @State private var notificationIsActive: Bool = true
     @State private var timeRemaining: Int = 3
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -44,7 +47,8 @@ struct ContentView: View {
 
     func add() {
         if groupName.count <= 3 {
-            print("Type more than 3 letter")
+            // print("Type more than 3 letters")
+            attentionText = "Type more than 3 letters"
             visible.toggle()
             // set timer for 3 seconds to show attention bar on top
         } else {
@@ -54,8 +58,8 @@ struct ContentView: View {
                 try self.viewContext.save()
                 visible = false
             } catch {
-                attentionText = "Error in saving group"
-                print("Error in saving group")
+                attentionText = "Error in saving a group"
+                // print("Error in saving group")
             }
         }
     }
@@ -216,11 +220,10 @@ struct ContentView: View {
                 }
                 // end of ScrollView
                 
-                // MARK: - Floating Button
-                // floating button:
+                // MARK: - Attention notification
                 VStack {
                     // floating error message when user works with the TextField for creating a group:
-                    
+                    if timeRemaining > 0 {
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)
                             .fill(Color.white)
@@ -234,7 +237,7 @@ struct ContentView: View {
                                 .bold()
                             // Spacer()
                             Text("\(attentionText)")
-                                .font(.system(.caption))
+                                .font(.system(.caption2))
                                 .lineLimit(2)
                         }
                         .frame(width:UIScreen.main.bounds.width - 80, height: 55)
@@ -244,6 +247,16 @@ struct ContentView: View {
                     .animation(.easeInOut)
                     .frame(width:UIScreen.main.bounds.width - 65, height: 55)
                     
+                    .onReceive(timer) { time in
+                        if self.timeRemaining > 0 {
+                            self.timeRemaining -= 1
+                        } else {
+                            
+                            }
+                        }
+                    }
+                    
+                    // MARK: - Floating Button
                     
                     Spacer()
                     HStack {
