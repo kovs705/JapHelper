@@ -43,6 +43,7 @@ struct ContentView: View {
     
     @State private var buttonState: Bool = false
     
+    
     // MARK: - Functions
 
     func add() {
@@ -60,6 +61,7 @@ struct ContentView: View {
             } catch {
                 attentionText = "Error in saving a group"
                 // print("Error in saving group")
+                notificationIsActive = true
             }
         }
     }
@@ -74,6 +76,7 @@ struct ContentView: View {
         } catch {
             attentionText = "Something happened on deleting the group!"
             print("Something happened on deleting the group!")
+            notificationIsActive = true
         }
     }
     
@@ -223,7 +226,7 @@ struct ContentView: View {
                 // MARK: - Attention notification
                 VStack {
                     // floating error message when user works with the TextField for creating a group:
-                    if timeRemaining > 0 {
+                    if notificationIsActive {
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)
                             .fill(Color.white)
@@ -243,17 +246,18 @@ struct ContentView: View {
                         .frame(width:UIScreen.main.bounds.width - 80, height: 55)
                     }
                     .padding(.horizontal)
-                    .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
+                    .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .move(edge: .bottom).combined(with: .opacity)))
                     .animation(.easeInOut)
                     .frame(width:UIScreen.main.bounds.width - 65, height: 55)
                     
                     .onReceive(timer) { time in
                         if self.timeRemaining > 0 {
                             self.timeRemaining -= 1
-                        } else {
-                            
-                            }
                         }
+                        if self.timeRemaining == 0 {
+                            notificationIsActive = false
+                        }
+                    }
                     }
                     
                     // MARK: - Floating Button
@@ -320,5 +324,46 @@ extension Publishers {
         
         return MergeMany(willShow, willHide)
             .eraseToAnyPublisher()
+    }
+}
+extension UIResponder {
+    static var currentFirstResponder: UIResponder? {
+        _currentFirstResponder = nil
+        UIApplication.shared.sendAction(#selector(UIResponder.findFirstResponder(_:)), to: nil, from: nil, for: nil)
+        return _currentFirstResponder
+    }
+
+    private static weak var _currentFirstResponder: UIResponder?
+
+    @objc private func findFirstResponder(_ sender: Any) {
+        UIResponder._currentFirstResponder = self
+    }
+
+    var globalFrame: CGRect? {
+        guard let view = self as? UIView else { return nil }
+        return view.superview?.convert(view.frame, to: nil)
+    }
+}
+
+struct KeyboardAdaptive: ViewModifier {
+    @State private var bottomPadding: CGFloat = 0
+    
+    func body(content: Content) -> some View {
+        
+        GeometryReader { geometry in
+            content
+                .padding(.bottom, self.bottomPadding)
+                
+                .onReceive(Publishers.keyboardHeight) { keyboardHeight in
+                    
+                    let keyboardTop = geometry.frame(in: .global).height - keyboardHeight
+                    
+                    let focusedTextInputBottom = UIResponder.currentFirstResponder?.globalFrame?.maxY ?? 0
+                    
+                    self.bottomPadding = max(0, focusedTextInputBottom - keyboardTop - geometry.safeAreaInsets.bottom)
+            }
+                
+            .animation(.easeOut(duration: 0.16))
+        }
     }
 }
