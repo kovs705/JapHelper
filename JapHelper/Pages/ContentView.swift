@@ -34,7 +34,7 @@ struct ContentView: View {
     
     @State private var visible: Bool = false
     @State var attentionText: String = "There is a bug!"
-    @State private var notificationIsActive: Bool = true
+    @State private var notificationIsActive: Bool = false
     @State private var timeRemaining: Int = 3
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -182,7 +182,7 @@ struct ContentView: View {
                                     }
                                 }, perform: {})
                                 */
-                                // MARK: - check this animation out
+                                
                                 .animation(.easeInOut)
                                 
                                 // .padding(.horizontal)
@@ -200,26 +200,34 @@ struct ContentView: View {
                                 }
                                 .frame(width: UIScreen.main.bounds.width - 70, height: 60)
                                 .zIndex(-1)
+                                
                             }
                             
                             // MARK: - List of groups
                             List {
                                 ForEach(groups, id: \.self) { group in
-                                    HStack {
-                                        Text(group.name ?? "Unknown name")
-                                            .font(.headline)
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .fill(Color.offWhite)
+                                        HStack {
+                                            Text(group.name ?? "Unknown name")
+                                                .font(.headline)
+                                        }
                                     }
                                 }
                                 .onDelete(perform: deleteGroup)
                             }
+                            .zIndex(-2)
+                            .background(Color.clear)
                             .onAppear {
                                 UITableView.appearance().isScrollEnabled = false
                             }
                             .padding(.horizontal)
-                            .frame(width: UIScreen.main.bounds.width - 80, height: 360)
+                            .frame(width: UIScreen.main.bounds.width - 30, height: 450) // 360
                             // .border(Color.red)
                         }
                     }
+                    // end of VStack
                 }
                 // end of ScrollView
                 
@@ -291,7 +299,11 @@ struct ContentView: View {
                 .padding()
                 .navigationTitle("Japanese")
             }
+            // end of ZStack
+            // .keyboardAdaptive()
         }
+        //.keyboardAdaptive()
+        // end of NavView
         
     }
     
@@ -365,5 +377,16 @@ struct KeyboardAdaptive: ViewModifier {
                 
             .animation(.easeOut(duration: 0.16))
         }
+    }
+}
+
+extension View {
+    func keyboardAdaptive() -> some View {
+        ModifiedContent(content: self, modifier: KeyboardAdaptive())
+    }
+}
+extension View {
+    func banner(data: Binding<BannerModifier.BannerData>, show: Binding<Bool>) -> some View {
+        self.modifier(BannerModifier(data: data, show: show))
     }
 }

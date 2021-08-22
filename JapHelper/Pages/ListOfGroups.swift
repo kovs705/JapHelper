@@ -17,12 +17,13 @@ struct ListOfGroups: View {
             VStack {
                 List {
                     ForEach(groups, id: \.self) { group in
-                        Section(header: Text(group.wrappedName)) {
+                        Section(header: Text(group.name ?? "Unknown group name")) {
                             ForEach(group.wordsArray, id: \.self) { word in
                                 Text(word.wrappedExactWord)
                             }
                         }
                     }
+                    
                 }
             }
         }
