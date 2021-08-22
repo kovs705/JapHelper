@@ -28,10 +28,50 @@ struct BannerModifier: ViewModifier {
             }
         }
     }
+    enum BannerTitle {
+        case Info
+            case Warning
+                case Success
+                    case Error
+        
+        var caseString: String {
+            switch self {
+            case .Info:
+                return String("Need to know") // in blue
+            case .Warning:
+                return String("Attention!") // in yellow
+            case .Success:
+                return String("Successful") // in green
+            case .Error:
+                return String("Error!") // in red
+            }
+        }
+        
+    }
+    enum BannerDetail {
+        case Info
+            case Warning
+                case Success
+                    case Error
+        
+        var caseDetail: String {
+            switch self {
+            case .Info:
+                return String("")
+            case .Warning:
+                return String("")
+            case .Success:
+                return String("")
+            case .Error:
+                return String("")
+            }
+        }
+    }
     
     struct BannerData {
         // var title: String
-        var detail: String
+        var title: BannerTitle
+        var detail: BannerDetail
         var type: BannerType
     }
     @Binding var data: BannerData
@@ -44,9 +84,9 @@ struct BannerModifier: ViewModifier {
                     // banner content
                     HStack {
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(data.title)
+                            Text(data.title.caseString)
                                 .bold()
-                            Text(data.detail)
+                            Text(data.detail.caseDetail)
                                 .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
                         }
                         .foregroundColor(Color.white)
