@@ -97,11 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				4E095521253E0340001568FF /* JapHelperApp.swift */,
+				4E09552A253E0343001568FF /* Persistence.swift */,
 				4E86D47F26CAEB430077569C /* Prototypes */,
 				4E6F5EF32540C30A00C7CE93 /* Pages */,
 				4E095539253E07FB001568FF /* SubViews */,
 				4E095525253E0343001568FF /* Assets.xcassets */,
-				4E09552A253E0343001568FF /* Persistence.swift */,
 				4E09552F253E0343001568FF /* Info.plist */,
 				4E09552C253E0343001568FF /* JapHelper.xcdatamodeld */,
 				4E095527253E0343001568FF /* Preview Content */,

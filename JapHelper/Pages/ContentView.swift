@@ -13,8 +13,9 @@ import UIKit
 // MARK: - Instructions
     ///
     /// Right now (06.08.2021) I'm working on notification on top of the app, specifically working on timer for it.
-    ///
-    ///
+    /// working on notification
+    /// then you will need to think how you can make a detailView for a group of words + some interactions with them
+    /// also don't forget about textfield, it should be shown in ViewModifier with a
     ///
 //
 
@@ -32,26 +33,23 @@ struct ContentView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
-    @State private var visible: Bool = false
-    @State var attentionText: String = "There is a bug!"
-    @State private var notificationIsActive: Bool = false
-    @State private var timeRemaining: Int = 3
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var visible: Bool = false // for TextField
     
     @State private var keyboardHeight: CGFloat = 0
     @State var groupName: String = ""
     
     @State private var buttonState: Bool = false
     
+    @State var bannerData: BannerModifier.BannerData = BannerModifier.BannerData(title: .Info, detail: .Info, type: .Info)
+    @State private var notificationIsActive: Bool = false // for notification report
     
     // MARK: - Functions
 
     func add() {
-        if groupName.count <= 3 {
-            // print("Type more than 3 letters")
-            attentionText = "Type more than 3 letters"
+        if groupName.count <= 1  {
+            notificationIsActive = true
+            bannerData = BannerModifier.BannerData(title: .Warning, detail: .Warning, type: .Warning)
             visible.toggle()
-            // set timer for 3 seconds to show attention bar on top
         } else {
             let newGroup = Group(context: self.viewContext)
             newGroup.name = self.groupName
@@ -59,8 +57,7 @@ struct ContentView: View {
                 try self.viewContext.save()
                 visible = false
             } catch {
-                attentionText = "Error in saving a group"
-                // print("Error in saving group")
+                bannerData = BannerModifier.BannerData(title: .ErrorSaving, detail: .ErrorSaving, type: .ErrorSaving)
                 notificationIsActive = true
             }
         }
@@ -74,7 +71,7 @@ struct ContentView: View {
         do {
             try self.viewContext.save()
         } catch {
-            attentionText = "Something happened on deleting the group!"
+            bannerData = BannerModifier.BannerData(title: .ErrorDeleting, detail: .ErrorDeleting, type: .ErrorDeleting)
             print("Something happened on deleting the group!")
             notificationIsActive = true
         }
@@ -231,43 +228,8 @@ struct ContentView: View {
                 }
                 // end of ScrollView
                 
-                // MARK: - Attention notification
+//                // MARK: - Attention notification
                 VStack {
-                    // floating error message when user works with the TextField for creating a group:
-                    if notificationIsActive {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color.white)
-                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
-                            .frame(width:UIScreen.main.bounds.width - 65, height: 55)
-                        
-                        HStack {
-                            // Two textes with attention
-                            Text("Attention!")
-                                .font(.system(.subheadline))
-                                .bold()
-                            // Spacer()
-                            Text("\(attentionText)")
-                                .font(.system(.caption2))
-                                .lineLimit(2)
-                        }
-                        .frame(width:UIScreen.main.bounds.width - 80, height: 55)
-                    }
-                    .padding(.horizontal)
-                    .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .move(edge: .bottom).combined(with: .opacity)))
-                    .animation(.easeInOut)
-                    .frame(width:UIScreen.main.bounds.width - 65, height: 55)
-                    
-                    .onReceive(timer) { time in
-                        if self.timeRemaining > 0 {
-                            self.timeRemaining -= 1
-                        }
-                        if self.timeRemaining == 0 {
-                            notificationIsActive = false
-                        }
-                    }
-                    }
-                    
                     // MARK: - Floating Button
                     
                     Spacer()
@@ -296,16 +258,18 @@ struct ContentView: View {
                         }
                     }
                 }
+                .banner(data: $bannerData, show: $notificationIsActive)
                 .padding()
                 .navigationTitle("Japanese")
             }
             // end of ZStack
             // .keyboardAdaptive()
         }
+        // .banner(data: $bannerData, show: $notificationIsActive)
         //.keyboardAdaptive()
         // end of NavView
-        
     }
+    
     
 }
 

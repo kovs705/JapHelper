@@ -23,9 +23,7 @@ struct lessonsList: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var groupName: String = ""
-    @State private var keyboardHeight: CGFloat = 0
-    
-    @State private var buttonState: Bool = false
+
     
     // MARK: - Functions
 
@@ -34,9 +32,6 @@ struct lessonsList: View {
         newGroup.name = self.groupName
         
         try? self.viewContext.save()
-    }
-    func changeToggle() {
-        buttonState.toggle()
     }
     
     var body: some View {
@@ -50,45 +45,7 @@ struct lessonsList: View {
             }
         }
         
-        
-        
-        TextField("Group name..", text: $groupName, onCommit: {
-            // gav
-        })
-        
-        // .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
-        //.frame(width: UIScreen.main.bounds.width - 80, height: 55)
-        //.contentShape(Rectangle())
-        // .padding(.horizontal)
-        .background(Color.black)
-        .cornerRadius(20)
-        
-        // .lineLimit(1)
-        // .scaleEffect(self.buttonState ? 0.95 : 1.0)
-        
-        .font(.system(size: 18))
-        /*
-        .onLongPressGesture(minimumDuration: 2.5, maximumDistance: 0.1, pressing: { pressing in
-            withAnimation(.easeInOut(duration: 0.5)) {
-                self.buttonState = pressing
-            }
-        }, perform: {})
-        */
-        
-        .animation(.easeIn)
-        
-        // .padding(.horizontal)
-        .padding(.bottom, keyboardHeight)
-        
-        .onReceive(Publishers.keyboardHeight) {
-            self.keyboardHeight = $0
-        }
-        
         .padding(.horizontal)
-        // .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
-        // .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
-        // .frame(height: 50)
-        // focus keyboard on click
         .navigationTitle("Lessons list")
         .listStyle(GroupedListStyle())
     }

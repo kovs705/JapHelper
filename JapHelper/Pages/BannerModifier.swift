@@ -13,7 +13,8 @@ struct BannerModifier: ViewModifier {
         case Info
             case Warning
                 case Success
-                    case Error
+                    case ErrorDeleting
+                        case ErrorSaving
         
         var tintColor: Color {
             switch self {
@@ -23,7 +24,9 @@ struct BannerModifier: ViewModifier {
                 return Color.yellow
             case .Success:
                 return Color.green
-            case .Error:
+            case .ErrorDeleting:
+                return Color.red
+            case .ErrorSaving:
                 return Color.red
             }
         }
@@ -32,7 +35,8 @@ struct BannerModifier: ViewModifier {
         case Info
             case Warning
                 case Success
-                    case Error
+                    case ErrorDeleting
+                        case ErrorSaving
         
         var caseString: String {
             switch self {
@@ -42,7 +46,9 @@ struct BannerModifier: ViewModifier {
                 return String("Attention!") // in yellow
             case .Success:
                 return String("Successful") // in green
-            case .Error:
+            case .ErrorDeleting:
+                return String("Error!") // in red
+            case .ErrorSaving:
                 return String("Error!") // in red
             }
         }
@@ -52,28 +58,31 @@ struct BannerModifier: ViewModifier {
         case Info
             case Warning
                 case Success
-                    case Error
+                    case ErrorDeleting
+                        case ErrorSaving
         
         var caseDetail: String {
             switch self {
             case .Info:
-                return String("")
+                return String("Something is about to be changed")
             case .Warning:
-                return String("")
+                return String("Type more than 1 letter")
             case .Success:
-                return String("")
-            case .Error:
-                return String("")
+                return String("Everything is okay :)")
+            case .ErrorDeleting:
+                return String("Something happened on deleting the group!")
+            case .ErrorSaving:
+                return String("Error in saving a group")
             }
         }
     }
     
     struct BannerData {
-        // var title: String
         var title: BannerTitle
         var detail: BannerDetail
         var type: BannerType
     }
+    
     @Binding var data: BannerData
     @Binding var show: Bool
     
@@ -88,6 +97,8 @@ struct BannerModifier: ViewModifier {
                                 .bold()
                             Text(data.detail.caseDetail)
                                 .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                            Text("Tap to close")
+                                .font(Font.system(Font.TextStyle.caption))
                         }
                         .foregroundColor(Color.white)
                         .padding(12)
@@ -115,8 +126,8 @@ struct BannerModifier: ViewModifier {
                     Spacer()
                 }
                 // end of outer VStack
-                content
             }
+            content
         }
     }
 }
