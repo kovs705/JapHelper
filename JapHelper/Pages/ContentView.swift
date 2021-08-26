@@ -72,7 +72,7 @@ struct ContentView: View {
             try self.viewContext.save()
         } catch {
             bannerData = BannerModifier.BannerData(title: .ErrorDeleting, detail: .ErrorDeleting, type: .ErrorDeleting)
-            print("Something happened on deleting the group!")
+            // print("Something happened on deleting the group!")
             notificationIsActive = true
         }
     }
@@ -159,6 +159,7 @@ struct ContentView: View {
                                     // MARK: - Keyboard
                                 TextField("Group name..", text: $groupName, onCommit: {
                                     add()
+                                    // MARK: - clear the textfield
                                 })
                                 
                                 .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))

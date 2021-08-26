@@ -27,7 +27,7 @@ struct GroupDetailView: View {
                 // green button to create a new word for the group.
                 
             }
-            .navigationTitle(group.name ?? "Unknown gorup name")
+            .navigationTitle(group.name ?? "Unknown group name")
         }
         // end of NavView
     }

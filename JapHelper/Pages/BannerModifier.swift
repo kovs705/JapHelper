@@ -68,7 +68,7 @@ struct BannerModifier: ViewModifier {
             case .Warning:
                 return String("Type more than 1 letter")
             case .Success:
-                return String("Everything is okay :)")
+                return String("Everything is okay")
             case .ErrorDeleting:
                 return String("Something happened on deleting the group!")
             case .ErrorSaving:
@@ -91,22 +91,31 @@ struct BannerModifier: ViewModifier {
             if show {
                 VStack {
                     // banner content
+                    
                     HStack {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(data.title.caseString)
-                                .bold()
-                            Text(data.detail.caseDetail)
-                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
-                            Text("Tap to close")
-                                .font(Font.system(Font.TextStyle.caption))
+                        ZStack {
+                            
+                            RoundedRectangle(cornerRadius: 8)
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 70)
+                                .background(data.type.tintColor)
+                            
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(data.title.caseString)
+                                    .bold()
+                                Text(data.detail.caseDetail)
+                                    .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                                Text("Tap to close")
+                                    .font(Font.system(Font.TextStyle.caption))
+                            }
+                            .foregroundColor(Color.white)
+                            .padding(12)
+                            .background(data.type.tintColor)
+                            .cornerRadius(8)
+                            
+                            Spacer()
                         }
-                        .foregroundColor(Color.white)
-                        .padding(12)
-                        .background(data.type.tintColor)
-                        .cornerRadius(8)
-                        
-                        Spacer()
                     }
+                    .frame(width: UIScreen.main.bounds.width - 40, height: 70)
                     // end of HStack
                     .padding()
                     .animation(.easeInOut)

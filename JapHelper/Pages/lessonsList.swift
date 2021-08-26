@@ -44,7 +44,7 @@ struct lessonsList: View {
                 .padding(.horizontal)
             }
         }
-        
+        .ignoresSafeArea(.all)
         .padding(.horizontal)
         .navigationTitle("Lessons list")
         .listStyle(GroupedListStyle())

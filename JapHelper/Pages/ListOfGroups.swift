@@ -12,14 +12,35 @@ struct ListOfGroups: View {
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
     
+    @EnvironmentObject var userData: UserData
+    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.presentationMode) var presentationMode
+    
+    func add() {
+        let newWord = Group(context: self.viewContext)
+        newWord.words = [String("Hello")]
+        do {
+            try self.viewContext.save()
+        } catch {
+            print("Failed to create a word for a group!")
+        }
+        
+        try? self.viewContext.save()
+    }
+    
     var body: some View {
+        //        /*
         ScrollView {
             VStack {
                 List {
                     ForEach(groups, id: \.self) { group in
                         Section(header: Text(group.name ?? "Unknown group name")) {
                             ForEach(group.wordsArray, id: \.self) { word in
-                                Text(word.wrappedExactWord)
+                                NavigationLink(destination: GroupDetailView(group: group, word: word), label: {
+                                    Text(word.wrappedExactWord)
+                                })
+                                
+                                // Text(word.wrappedExactWord)
                             }
                         }
                     }
@@ -27,6 +48,7 @@ struct ListOfGroups: View {
                 }
             }
         }
+        // end of ScrollView
     }
 }
 
