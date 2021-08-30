@@ -33,42 +33,57 @@ struct AddNewGroup: View {
                     
                     // preview of the future group with the name, number of words and level (if it has):
                     ZStack {
-                        VStack {
-                            // MARK: - Name of the group
+                        VStack(alignment: .leading) {
                             
+                            // MARK: - Name of the group
                             if name.count == 0 {
                                 Text("Group name")
-                                    .font(.caption)
+                                    .font(.headline)
+                                    .bold()
                             } else {
                                 Text("\(name)")
-                                    .font(.caption)
+                                    .font(.headline)
+                                    .bold()
                             }
+                            
                             // MARK: - Detail info
                             HStack {
                                 Text("Number of words: 23")
-                                    .font(.caption2)
+                                    .font(.callout)
                                 if level == "None" {
                                     Text("Level: \("None")")
-                                        .font(.caption2)
+                                        .font(.subheadline)
                                 } else {
-                                    Text("\(level)")
-                                        .font(.caption2)
+                                    Text("Level: \(level)")
+                                        .font(.subheadline)
                                 }
                             }
+                            .frame(alignment: .trailing)
                         }
                         // end of VStack
                     }
                     .background(BlurView(style: .regular))
-                    .frame(width: UIScreen.main.bounds.width - 45, height: 75)
+                    .cornerRadius(10)
+                    .frame(width: UIScreen.main.bounds.width - 30, height: 110)
                     .padding()
                     //
                     
                     // MARK: - TextFields
                     
                     TextField("Name of a group..", text: $name)
-                        .PrettyTextField()
+                        .contentShape(Rectangle())
+                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                        .cornerRadius(20)
+                        .lineLimit(1)
+                        .font(.system(size: 18))
+                        .frame(width: UIScreen.main.bounds.width - 80, height: 55)
                     TextField("Type some notes (optional)", text: $note)
-                        .PrettyTextField()
+                        .contentShape(Rectangle())
+                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                        .cornerRadius(20)
+                        .lineLimit(1)
+                        .font(.system(size: 18))
+                        .frame(width: UIScreen.main.bounds.width - 80, height: 55)
                     
                     // MARK: - Section
                     
@@ -78,6 +93,8 @@ struct AddNewGroup: View {
                                 Text($0)
                             }
                         }
+                        .padding()
+                        .pickerStyle(SegmentedPickerStyle())
                     }
                     
                     // MARK: - Button
@@ -90,6 +107,7 @@ struct AddNewGroup: View {
                                 RoundedRectangle(cornerRadius: 25)
                                     .fill(Color.blue)
                                 Text("Create")
+                                    .foregroundColor(.white)
                                     .font(.callout)
                             }
                             .padding()
@@ -98,11 +116,13 @@ struct AddNewGroup: View {
                                 RoundedRectangle(cornerRadius: 25)
                                     .fill(Color.gray)
                                 Text("Create")
+                                    .foregroundColor(.white)
                                     .font(.callout)
                             }
                         }
                     }
-                    .buttonStyle(AnimatedButton())
+                    .frame(width: UIScreen.main.bounds.width - 80, height: 75)
+                    // .buttonStyle(AnimatedButton())
                     // end of the button
                     
                 }
@@ -111,10 +131,9 @@ struct AddNewGroup: View {
                 Spacer()
             }
             // end of outer VStack
-            
+            .navigationTitle("Create a group")
         }
         // end of NavigationView
-        .navigationTitle("Create a group")
     }
 }
 

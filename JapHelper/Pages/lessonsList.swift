@@ -35,19 +35,22 @@ struct lessonsList: View {
     }
     
     var body: some View {
-        List {
-            ForEach(userData.lessons) { lesson in
-                NavigationLink(destination: lessonsPage_Test_(lesson: lesson)
-                                .environmentObject(UserData())) {
-                    lessonRow(lesson: lesson)
+            List {
+                ForEach(userData.lessons) { lesson in
+                    NavigationLink(destination: lessonsPage_Test_(lesson: lesson)
+                                    .environmentObject(UserData())) {
+                        lessonRow(lesson: lesson)
+                    }
+                    .padding(.horizontal)
                 }
-                // .padding(.horizontal)
             }
-        }
-        .ignoresSafeArea(.all)
-        .padding(.horizontal)
+            .onAppear {
+                UITableView.appearance().isScrollEnabled = true
+            }
+            .listStyle(GroupedListStyle())
+        // .padding(.horizontal)
         .navigationTitle("Lessons list")
-        .listStyle(GroupedListStyle())
+
     }
     // end of List
 }

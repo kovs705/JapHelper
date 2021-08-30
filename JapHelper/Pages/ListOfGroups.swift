@@ -51,13 +51,13 @@ struct ListOfGroups: View {
             }
         }
         // end of ScrollView
-        .navigationBarItems(leading: Button(action: {
+        .navigationBarItems(trailing: Button(action: {
             self.show.toggle()
         }) {
-            Image(systemName: "Plus")
+            Image(systemName: "plus")
                 .font(.system(size: 25))
         }).sheet(isPresented: $show) {
-            
+            AddNewGroup()
         }
     }
 }
