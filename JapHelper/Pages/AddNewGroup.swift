@@ -14,7 +14,7 @@ struct AddNewGroup: View {
     
     @State private var name = ""
     @State private var note = ""
-    @State private var level = ""
+    @State private var level = "None"
     
     let levels = ["N5", "N4", "N3", "N2", "N1", "None"]
     
@@ -32,13 +32,45 @@ struct AddNewGroup: View {
                 VStack {
                     
                     // preview of the future group with the name, number of words and level (if it has):
-                    
+                    ZStack {
+                        VStack {
+                            // MARK: - Name of the group
+                            
+                            if name.count == 0 {
+                                Text("Group name")
+                                    .font(.caption)
+                            } else {
+                                Text("\(name)")
+                                    .font(.caption)
+                            }
+                            // MARK: - Detail info
+                            HStack {
+                                Text("Number of words: 23")
+                                    .font(.caption2)
+                                if level == "None" {
+                                    Text("Level: \("None")")
+                                        .font(.caption2)
+                                } else {
+                                    Text("\(level)")
+                                        .font(.caption2)
+                                }
+                            }
+                        }
+                        // end of VStack
+                    }
+                    .background(BlurView(style: .regular))
+                    .frame(width: UIScreen.main.bounds.width - 45, height: 75)
+                    .padding()
                     //
+                    
+                    // MARK: - TextFields
                     
                     TextField("Name of a group..", text: $name)
                         .PrettyTextField()
                     TextField("Type some notes (optional)", text: $note)
                         .PrettyTextField()
+                    
+                    // MARK: - Section
                     
                     Section {
                         Picker("Select the level", selection: $level) {
@@ -48,6 +80,7 @@ struct AddNewGroup: View {
                         }
                     }
                     
+                    // MARK: - Button
                     
                     Button(action: {
                         // createGroup()
