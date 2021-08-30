@@ -19,3 +19,16 @@ struct AnimatedButton: ButtonStyle {
             .animation(.easeInOut)
     }
 }
+
+struct PrettyTextField: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .padding(.horizontal)
+            .cornerRadius(20)
+            .contentShape(Rectangle())
+            .background(Color.white)
+            .font(.system(size: 18))
+            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+    }
+}

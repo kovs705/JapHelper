@@ -154,7 +154,7 @@ struct ContentView: View {
                             
                             if visible {
                             
-                                // ФОКУСИРОВКА НА КЛАВИАТУРУ И ИЗМЕНЕНИЕ ЦВЕТА КНОПКУ ДОБАВЛЕНИЯ ГРУППЫ
+                                // ФОКУСИРОВКА НА КЛАВИАТУРУ И ИЗМЕНЕНИЕ ЦВЕТА КНОПКИ ДОБАВЛЕНИЯ ГРУППЫ
                                 ZStack {
                                     // MARK: - Keyboard
                                 TextField("Group name..", text: $groupName, onCommit: {
@@ -173,13 +173,7 @@ struct ContentView: View {
                                 .scaleEffect(self.buttonState ? 0.95 : 1.0)
                                 
                                 .font(.system(size: 18))
-                                /*
-                                .onLongPressGesture(minimumDuration: 2.5, maximumDistance: 0.1, pressing: { pressing in
-                                    withAnimation(.easeInOut(duration: 0.5)) {
-                                        self.buttonState = pressing
-                                    }
-                                }, perform: {})
-                                */
+                                
                                 
                                 .animation(.easeInOut)
                                 

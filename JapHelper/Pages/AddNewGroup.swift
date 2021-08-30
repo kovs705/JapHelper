@@ -14,30 +14,63 @@ struct AddNewGroup: View {
     
     @State private var name = ""
     @State private var note = ""
+    @State private var level = ""
     
-    let level = ["N5", "N4", "N3", "N2", "N1"]
+    let levels = ["N5", "N4", "N3", "N2", "N1", "None"]
     
-    createGroup() {
+    // createGroup() {
         // function to create a group
-    }
+        
+    //}
     
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Name of a group..", text: $name)
-                    .padding(.horizontal)
-                TextField("Type some notes (optional)", text: $note)
                 
-                Button(action: {
+                Spacer()
+                
+                VStack {
+                    TextField("Name of a group..", text: $name)
+                        .padding(.horizontal)
+                        .cornerRadius(20)
+                        .contentShape(Rectangle())
+                        .background(Color.white)
+                        .font(.system(size: 18))
+                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                    TextField("Type some notes (optional)", text: $note)
+                        .padding(.horizontal)
+                        .cornerRadius(20)
+                        .contentShape(Rectangle())
+                        .background(Color.white)
+                        .font(.system(size: 18))
+                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                     
-                }) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(C)
+                    Section {
+                        Picker("Select the level", selection: $level) {
+                            ForEach(levels, id: \.self) {
+                                Text($0)
+                            }
+                        }
                     }
-                    .padding()
+                    
+                    
+                    Button(action: {
+                        createGroup()
+                    }) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill()
+                        }
+                        .padding()
+                    }
+                    // end of the button
+                    
                 }
+                // end of inner VStack
+                
+                Spacer()
             }
+            // end of outer VStack
             
         }
         // end of NavigationView
