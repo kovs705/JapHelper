@@ -41,7 +41,7 @@ struct lessonsList: View {
                                 .environmentObject(UserData())) {
                     lessonRow(lesson: lesson)
                 }
-                .padding(.horizontal)
+                // .padding(.horizontal)
             }
         }
         .ignoresSafeArea(.all)

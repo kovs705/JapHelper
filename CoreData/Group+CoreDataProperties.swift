@@ -18,6 +18,7 @@ extension Group {
 
     @NSManaged public var name: String?
     @NSManaged public var note: String?
+    @NSManaged public var level: String?
     
     @NSManaged public var words: NSSet?
     

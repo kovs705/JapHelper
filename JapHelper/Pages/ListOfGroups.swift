@@ -16,6 +16,8 @@ struct ListOfGroups: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var show = false
+    
     func add() {
         let newWord = Group(context: self.viewContext)
         newWord.words = [String("Hello")]
@@ -49,6 +51,14 @@ struct ListOfGroups: View {
             }
         }
         // end of ScrollView
+        .navigationBarItems(leading: Button(action: {
+            self.show.toggle()
+        }) {
+            Image(systemName: "Plus")
+                .font(.system(size: 25))
+        }).sheet(isPresented: $show) {
+            
+        }
     }
 }
 
