@@ -30,20 +30,15 @@ struct AddNewGroup: View {
                 Spacer()
                 
                 VStack {
+                    
+                    // preview of the future group with the name, number of words and level (if it has):
+                    
+                    //
+                    
                     TextField("Name of a group..", text: $name)
-                        .padding(.horizontal)
-                        .cornerRadius(20)
-                        .contentShape(Rectangle())
-                        .background(Color.white)
-                        .font(.system(size: 18))
-                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                        .PrettyTextField()
                     TextField("Type some notes (optional)", text: $note)
-                        .padding(.horizontal)
-                        .cornerRadius(20)
-                        .contentShape(Rectangle())
-                        .background(Color.white)
-                        .font(.system(size: 18))
-                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                        .PrettyTextField()
                     
                     Section {
                         Picker("Select the level", selection: $level) {
@@ -55,14 +50,26 @@ struct AddNewGroup: View {
                     
                     
                     Button(action: {
-                        createGroup()
+                        // createGroup()
                     }) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill()
+                        if name.count > 0 {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 25)
+                                    .fill(Color.blue)
+                                Text("Create")
+                                    .font(.callout)
+                            }
+                            .padding()
+                        } else {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 25)
+                                    .fill(Color.gray)
+                                Text("Create")
+                                    .font(.callout)
+                            }
                         }
-                        .padding()
                     }
+                    .buttonStyle(AnimatedButton())
                     // end of the button
                     
                 }
