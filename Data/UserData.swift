@@ -40,7 +40,10 @@ struct AnimatedButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
-            .animation(.easeInOut)
+            .animation(.easeIn)
+            .onLongPressGesture {
+                // type an animation with scaleEffect
+            }
     }
 }
 

@@ -122,7 +122,7 @@ struct AddNewGroup: View {
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 80, height: 75)
-                    // .buttonStyle(AnimatedButton())
+                    .buttonStyle(AnimatedButton())
                     // end of the button
                     
                 }
