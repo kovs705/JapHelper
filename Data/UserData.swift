@@ -40,10 +40,7 @@ struct AnimatedButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
-            .animation(.easeIn)
-            .onLongPressGesture {
-                // type an animation with scaleEffect
-            }
+            //.animation(.easeIn)
     }
 }
 
@@ -52,7 +49,7 @@ extension TextField {
     func PrettyTextField() -> some View {
         self
             .padding(.horizontal)
-            .cornerRadius(20)
+            .cornerRadius(10)
             .contentShape(Rectangle())
             .background(Color.white)
             .font(.system(size: 18))
