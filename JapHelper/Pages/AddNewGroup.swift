@@ -58,13 +58,26 @@ struct AddNewGroup: View {
                                 Spacer()
                                 
                                 if level == "None" {
-                                    Text("Level: \("None")")
-                                        .font(.subheadline)
-                                        .foregroundColor(.white)
+                                    HStack {
+                                        Text("Level: ")
+                                            .font(.subheadline)
+                                            .foregroundColor(.white)
+                                        Text("None")
+                                            .bold()
+                                            .foregroundColor(.white)
+                                            .font(.subheadline)
+                                    }
+                                    
                                 } else {
-                                    Text("Level: \(level)")
-                                        .font(.subheadline)
-                                        .foregroundColor(.white)
+                                    HStack {
+                                        Text("Level: ")
+                                            .font(.subheadline)
+                                            .foregroundColor(.white)
+                                        Text(level)
+                                            .bold()
+                                            .foregroundColor(.white)
+                                            .font(.subheadline)
+                                    }
                                 }
                             }
                             .frame(alignment: .trailing)
@@ -79,23 +92,35 @@ struct AddNewGroup: View {
                     .padding(.horizontal)
                     //
                     
+                    Spacer()
+                    
                     // MARK: - TextFields
-                    
-                    TextField("Name of a group..", text: $name)
-                        .contentShape(Rectangle())
-                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
-                        .lineLimit(1)
-                        .font(.system(size: 18))
-                        .frame(width: UIScreen.main.bounds.width - 80, height: 90)
-                    
-                    TextField("Type some notes (optional)", text: $note)
-                        .frame(width: UIScreen.main.bounds.width - 80, height: 90)
-                        .contentShape(Rectangle())
-                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
-                        .cornerRadius(10)
-                        .lineLimit(1)
-                        .font(.system(size: 18))
-                    
+                    VStack {
+                        TextField("Name of a group..", text: $name)
+                            .foregroundColor(.white)
+                            .contentShape(Rectangle())
+                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                            .lineLimit(1)
+                            .font(.system(size: 18))
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 90)
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                        
+                        TextField("Type some notes (optional)", text: $note)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 90)
+                            .contentShape(Rectangle())
+                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                            .cornerRadius(10)
+                            .lineLimit(1)
+                            .font(.system(size: 18))
+                            .padding(.horizontal)
+                    }
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                    .background(BlurView(style: .regular))
                     // MARK: - Section
                     
 //                    Section {
@@ -104,6 +129,7 @@ struct AddNewGroup: View {
                                 Text($0)
                             }
                         }
+                        .foregroundColor(.white)
                         .padding()
                         .pickerStyle(MenuPickerStyle())
 //                    }
@@ -136,7 +162,7 @@ struct AddNewGroup: View {
                     .frame(width: UIScreen.main.bounds.width - 80, height: 90)
                     .buttonStyle(AnimatedButton())
                     // end of the button
-                    
+                    Spacer()
                 }
                 // end of inner VStack
                 
@@ -144,7 +170,7 @@ struct AddNewGroup: View {
             }
             .background(Image("first").scaledToFill())
             // end of outer VStack
-            .navigationTitle("Create a group")
+            // .navigationTitle("Create a group")
         }
         // end of NavigationView
     }
