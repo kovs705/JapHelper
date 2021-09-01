@@ -95,41 +95,41 @@ struct AddNewGroup: View {
                     Spacer()
                     
                     // MARK: - TextFields
-                    VStack {
+                    ZStack {
                         TextField("Name of a group..", text: $name)
                             .foregroundColor(.white)
-                            .contentShape(Rectangle())
+                            // .contentShape(Rectangle())
+                            .cornerRadius(10)
                             .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                             .lineLimit(1)
                             .font(.system(size: 18))
-                            .frame(width: UIScreen.main.bounds.width - 40)
+                            .frame(width: UIScreen.main.bounds.width - 80)
                             .frame(height: 75)
-                            .cornerRadius(10)
                             .padding(.horizontal)
                             .background(BlurView(style: .regular))
-                        
+                    }
+                    
+                    ZStack {
                         TextField("Type some notes (optional)", text: $note)
                             .foregroundColor(.white)
-                            .contentShape(Rectangle())
+                            // .contentShape(Rectangle())
                             .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                             .lineLimit(1)
                             .font(.system(size: 18))
-                            .frame(width: UIScreen.main.bounds.width - 40)
+                            .frame(width: UIScreen.main.bounds.width - 80)
                             .frame(height: 75)
                             .cornerRadius(10)
                             .padding(.horizontal)
                             .background(BlurView(style: .regular))
                     }
-                    .cornerRadius(10)
-                    //.padding(.horizontal)
-                    .padding()
-                    .frame(width: UIScreen.main.bounds.width - 40, height: 180)
+
                     // MARK: - Section
                     
 //                    Section {
                         Picker("Select the level", selection: $level) {
                             ForEach(levels, id: \.self) {
                                 Text($0)
+                                    .contentShape(Capsule())
                             }
                         }
                         .foregroundColor(.white)
