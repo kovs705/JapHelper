@@ -98,30 +98,40 @@ struct AddNewGroup: View {
                     ZStack {
                         TextField("Name of a group..", text: $name)
                             .foregroundColor(.white)
-                            // .contentShape(Rectangle())
-                            .cornerRadius(10)
-                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                            .contentShape(Rectangle())
+                            // .cornerRadius(10)
+                            // .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                             .lineLimit(1)
                             .font(.system(size: 18))
                             .frame(width: UIScreen.main.bounds.width - 80)
                             .frame(height: 75)
                             .padding(.horizontal)
-                            .background(BlurView(style: .regular))
+                            // .background(BlurView(style: .regular))
                     }
+                    .background(BlurView(style: .regular))
+                    .cornerRadius(10)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 85)
+                    .padding(.horizontal)
                     
                     ZStack {
                         TextField("Type some notes (optional)", text: $note)
                             .foregroundColor(.white)
-                            // .contentShape(Rectangle())
-                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                            .contentShape(Rectangle())
+                            // .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                             .lineLimit(1)
                             .font(.system(size: 18))
                             .frame(width: UIScreen.main.bounds.width - 80)
                             .frame(height: 75)
-                            .cornerRadius(10)
+                            // .cornerRadius(10)
                             .padding(.horizontal)
-                            .background(BlurView(style: .regular))
+                            // .background(BlurView(style: .regular))
                     }
+                    .background(BlurView(style: .regular))
+                    .cornerRadius(10)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 100)
+                    //.padding(.horizontal)
 
                     // MARK: - Section
                     
@@ -129,12 +139,15 @@ struct AddNewGroup: View {
                         Picker("Select the level", selection: $level) {
                             ForEach(levels, id: \.self) {
                                 Text($0)
-                                    .contentShape(Capsule())
                             }
                         }
+                        .font(.system(size: 18))
+                        .background(BlurView(style: .regular))
                         .foregroundColor(.white)
                         .padding()
                         .pickerStyle(MenuPickerStyle())
+                        
+                        .frame(height: 19)
 //                    }
                     
                     // MARK: - Button

@@ -27,12 +27,15 @@ struct ContentView: View {
     
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
+    init() {
+        UITableView.appearance().separatorColor = .clear
+    }
     
     @EnvironmentObject var userData: UserData
     
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.defaultMinListRowHeight) var minRowHeight
-    
+        
     @State private var visible: Bool = false // for TextField
     
     @State private var keyboardHeight: CGFloat = 0
@@ -196,19 +199,51 @@ struct ContentView: View {
                             }
                             
                             // MARK: - List of groups
-                            List {
-                                ForEach(groups, id: \.self) { group in
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .fill(Color.offWhite)
-                                        HStack {
-                                            Text(group.name ?? "Unknown name")
-                                                .font(.headline)
+                            ScrollView {
+                                LazyVStack {
+                                    ForEach(groups, id: \.self) { group in
+                                        ZStack {
+                                            VStack(alignment: .leading) {
+                                                
+                                                // MARK: - Name of the group
+                                                Text(group.name ?? "Unknown group name")
+                                                    .font(.headline)
+                                                    .bold()
+                                                    .foregroundColor(.black)
+                                                
+                                                // MARK: - Detail info
+                                                HStack {
+                                                    Text("unkown")
+                                                        .font(.callout)
+                                                        .foregroundColor(.black)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    HStack {
+                                                        Text("Level: ")
+                                                            .font(.subheadline)
+                                                            .foregroundColor(.black)
+                                                        Text(group.level ?? "???")
+                                                            .bold()
+                                                            .foregroundColor(.black)
+                                                            .font(.subheadline)
+                                                    }
+                                                }
+                                                .frame(alignment: .trailing)
+                                            }
                                         }
+                                        .background(BlurView(style: .regular))
+                                        .cornerRadius(10)
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 50)
+                                        .padding(.horizontal)
                                     }
+                                    //end of ForEach
+                                    .onDelete(perform: deleteGroup)
                                 }
-                                .onDelete(perform: deleteGroup)
                             }
+                            // end of ScrollView
+                            // MARK: - DISABLE SCROLLING
                             .zIndex(-2)
                             .background(Color.clear)
                             .onAppear {
