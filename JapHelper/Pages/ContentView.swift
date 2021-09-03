@@ -59,6 +59,7 @@ struct ContentView: View {
             do {
                 try self.viewContext.save()
                 visible = false
+                groupName = "" // this should make textfield clear again
             } catch {
                 bannerData = BannerModifier.BannerData(title: .ErrorSaving, detail: .ErrorSaving, type: .ErrorSaving)
                 notificationIsActive = true
@@ -159,11 +160,12 @@ struct ContentView: View {
                             
                                 // ФОКУСИРОВКА НА КЛАВИАТУРУ И ИЗМЕНЕНИЕ ЦВЕТА КНОПКИ ДОБАВЛЕНИЯ ГРУППЫ
                                 ZStack {
-                                    // MARK: - Keyboard
+                                    // MARK: - TextField
                                 TextField("Group name..", text: $groupName, onCommit: {
                                     add()
                                     // MARK: - clear the textfield
                                 })
+                                .modifier(ClearButton(text: $groupName))
                                 
                                 .transition(.asymmetric(insertion: .move(edge: .top).combined(with: .opacity), removal: .opacity))
                                 .frame(width: UIScreen.main.bounds.width - 80, height: 55)
@@ -199,8 +201,7 @@ struct ContentView: View {
                             }
                             
                             // MARK: - List of groups
-                            ScrollView {
-                                LazyVStack {
+                            List {
                                     ForEach(groups, id: \.self) { group in
                                         ZStack {
                                             VStack(alignment: .leading) {
@@ -240,14 +241,13 @@ struct ContentView: View {
                                     }
                                     //end of ForEach
                                     .onDelete(perform: deleteGroup)
-                                }
                             }
                             // end of ScrollView
-                            // MARK: - DISABLE SCROLLING
                             .zIndex(-2)
                             .background(Color.clear)
                             .onAppear {
-                                UITableView.appearance().isScrollEnabled = false
+                                // UITableView.appearance().isScrollEnabled = false
+                                UITableView.appearance().separatorColor = .clear
                             }
                             .padding(.horizontal)
                             .frame(width: UIScreen.main.bounds.width - 30, height: 450) // 360
@@ -370,6 +370,23 @@ struct KeyboardAdaptive: ViewModifier {
             }
                 
             .animation(.easeOut(duration: 0.16))
+        }
+    }
+}
+
+struct ClearButton: ViewModifier {
+    @Binding var text: String
+    
+    public func body(content: Content) -> some View {
+        ZStack(alignment: .trailing) {
+            content
+            if !text.isEmpty {
+                Button(action: { self.text = "" }) {
+                    Image(systemName: "delete.left")
+                        .foregroundColor(Color(UIColor.opaqueSeparator))
+                }
+                .padding(.trailing, 8)
+            }
         }
     }
 }
