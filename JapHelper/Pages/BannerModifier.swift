@@ -95,9 +95,10 @@ struct BannerModifier: ViewModifier {
                     HStack {
                         ZStack {
                             
-                            RoundedRectangle(cornerRadius: 8)
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(data.type.tintColor)
                                 .frame(width: UIScreen.main.bounds.width - 40, height: 70)
-                                .background(data.type.tintColor)
+                                // .background(data.type.tintColor)
                             
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(data.title.caseString)
@@ -108,16 +109,16 @@ struct BannerModifier: ViewModifier {
                                     .font(Font.system(Font.TextStyle.caption))
                             }
                             .foregroundColor(Color.white)
-                            .padding(12)
-                            .background(data.type.tintColor)
-                            .cornerRadius(8)
+                            .padding(.horizontal)
+                            // .background(data.type.tintColor)
+                            .cornerRadius(10)
                             
                             Spacer()
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 40, height: 70)
                     // end of HStack
-                    .padding()
+                    // .padding()
                     .animation(.easeInOut)
                     .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
                     .onTapGesture {
@@ -134,6 +135,7 @@ struct BannerModifier: ViewModifier {
                     
                     Spacer()
                 }
+                .zIndex(2)
                 // end of outer VStack
             }
             content

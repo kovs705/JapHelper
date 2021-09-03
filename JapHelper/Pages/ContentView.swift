@@ -288,10 +288,11 @@ struct ContentView: View {
                         }
                     }
                 }
-                .banner(data: $bannerData, show: $notificationIsActive)
+                // .banner(data: $bannerData, show: $notificationIsActive)
                 .padding()
                 .navigationTitle("Japanese")
             }
+            .banner(data: $bannerData, show: $notificationIsActive)
             // end of ZStack
             // .keyboardAdaptive()
         }
