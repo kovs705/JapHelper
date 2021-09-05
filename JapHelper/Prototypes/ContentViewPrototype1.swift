@@ -30,22 +30,47 @@ struct ContentViewPrototype1: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
+    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+      @State var timeNow = ""
+      let dateFormatter = DateFormatter()
+    
+    
+    
     //MARK: - half black or dark theme / new design with neon lights under buttons and so on (you have pictures on your phone)
     
     var body: some View {
         NavigationView {
             ZStack {
                 // MARK: - Background
-                LinearGradient(gradient: Gradient(colors: [Color.darkBlue, Color.darkGold]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.veryDarkBlue, Color.darkBlue, Color.darkGold]),
+                    startPoint: UnitPoint(x: 0.1, y: 0),
+                    endPoint: .bottom
+                )
                 VStack {
+                    
+                    VStack {
+                        Text("")
+                            .onReceive(timer) { _ in
+                                    self.timeNow = dateFormatter.string(from: Date())
+                                  }
+                    }
+                    .frame(height: 200)
+                    
+                    
+                    
                     ZStack {
                     // MARK: - Top rounded rectangle with statistics and settings
                     RoundedRectangle(cornerRadius: 18)
-                        .frame(width: UIScreen.main.bounds.width - 35, height: 190, alignment: .top)
+                        .fill(Color.clear)
+                        .frame(width: UIScreen.main.bounds.width - 35, height: 190)
                         .background(BlurView(style: .regular))
                         
                     }
-                    .frame(width: UIScreen.main.bounds.width - 55, height: 200, alignment: .top)
+                    .frame(width: UIScreen.main.bounds.width - 55, height: 200)
+                    
+                    Spacer()
+                    
                     
                 }
                 
@@ -58,6 +83,9 @@ struct ContentViewPrototype1: View {
 extension Color {
     public static var darkBlue: Color {
         return Color(red: 28 / 255, green: 46 / 255, blue: 74 / 255)
+    }
+    public static var veryDarkBlue: Color {
+        return Color(red: 10 / 255, green: 20 / 255, blue: 50 / 255)
     }
     public static var darkGold: Color {
         return Color(red: 133 / 255, green: 94 / 255, blue: 60 / 255)
