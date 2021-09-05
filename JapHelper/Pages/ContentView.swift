@@ -28,7 +28,8 @@ struct ContentView: View {
     @FetchRequest(entity: Group.entity(), sortDescriptors: [], animation: .default)
     var groups: FetchedResults<Group>
     init() {
-        UITableView.appearance().separatorColor = .clear
+            UITableView.appearance().separatorColor = .clear
+            UITableView.appearance().separatorStyle = .none
     }
     
     @EnvironmentObject var userData: UserData
@@ -239,10 +240,16 @@ struct ContentView: View {
                                         .frame(height: 50)
                                         .padding(.horizontal)
                                     }
+                                    
                                     //end of ForEach
                                     .onDelete(perform: deleteGroup)
+                                    .onAppear {
+                                        // UITableView.appearance().isScrollEnabled = false
+                                        UITableView.appearance().separatorColor = .clear
+                                        UITableView.appearance().separatorStyle = .none
+                                    }
                             }
-                            // end of ScrollView
+                            // end of List
                             .zIndex(-2)
                             .background(Color.clear)
                             .onAppear {

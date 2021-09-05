@@ -30,31 +30,42 @@ struct ContentViewPrototype1: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
+    //MARK: - half black or dark theme / new design with neon lights under buttons and so on (you have pictures on your phone)
     
     var body: some View {
-        
-        ScrollView {
-            
+        NavigationView {
             ZStack {
-                Color.yellow
+                // MARK: - Background
+                LinearGradient(gradient: Gradient(colors: [Color.darkBlue, Color.darkGold]), startPoint: .top, endPoint: .bottom)
+                VStack {
+                    ZStack {
+                    // MARK: - Top rounded rectangle with statistics and settings
+                    RoundedRectangle(cornerRadius: 18)
+                        .frame(width: UIScreen.main.bounds.width - 35, height: 190, alignment: .top)
+                        .background(BlurView(style: .regular))
+                        
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 55, height: 200, alignment: .top)
+                    
+                }
+                
             }
             .ignoresSafeArea(.all)
-            
-            ZStack {
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(Color.white)
-            }
-            .offset(y: -200)
-            
         }
-        //.ignoresSafeArea()
+    }
+}
+
+extension Color {
+    public static var darkBlue: Color {
+        return Color(red: 28 / 255, green: 46 / 255, blue: 74 / 255)
+    }
+    public static var darkGold: Color {
+        return Color(red: 133 / 255, green: 94 / 255, blue: 60 / 255)
     }
 }
 
 struct ContentViewPrototype1_Previews: PreviewProvider {
     static var previews: some View {
         ContentViewPrototype1()
-            //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            // .environmentObject(UserData())
     }
 }
