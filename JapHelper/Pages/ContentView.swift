@@ -248,6 +248,7 @@ struct ContentView: View {
                             .onAppear {
                                 // UITableView.appearance().isScrollEnabled = false
                                 UITableView.appearance().separatorColor = .clear
+                                UITableView.appearance().separatorStyle = .none
                             }
                             .padding(.horizontal)
                             .frame(width: UIScreen.main.bounds.width - 30, height: 450) // 360
