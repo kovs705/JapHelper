@@ -47,31 +47,33 @@ struct ContentViewPrototype1: View {
                     startPoint: UnitPoint(x: 0.1, y: 0),
                     endPoint: .bottom
                 )
-                VStack {
-                    
+                ScrollView {
                     VStack {
-                        Text("")
-                            .onReceive(timer) { _ in
+                        VStack {
+                            Text("")
+                                .onReceive(timer) { _ in
                                     self.timeNow = dateFormatter.string(from: Date())
-                                  }
-                    }
-                    .frame(height: 200)
-                    
-                    
-                    
-                    ZStack {
-                    // MARK: - Top rounded rectangle with statistics and settings
-                    RoundedRectangle(cornerRadius: 18)
-                        .fill(Color.clear)
-                        .frame(width: UIScreen.main.bounds.width - 35, height: 190)
-                        .background(BlurView(style: .regular))
+                                }
+                        }
+                        .frame(height: 200)
+                        
+                        
+                        
+                        ZStack {
+                            // MARK: - Top rounded rectangle with statistics and settings
+                            RoundedRectangle(cornerRadius: 18)
+                                .fill(Color.clear)
+                                .frame(width: UIScreen.main.bounds.width - 35, height: 190)
+                                .background(BlurView(style: .regular))
+                            
+                        }
+                        .frame(width: UIScreen.main.bounds.width - 55, height: 200)
+                        
+                        Spacer()
+                        
                         
                     }
-                    .frame(width: UIScreen.main.bounds.width - 55, height: 200)
-                    
-                    Spacer()
-                    
-                    
+                    // end of VStack
                 }
                 
             }
