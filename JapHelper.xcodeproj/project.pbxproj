@@ -176,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				4EB4B35926AEF0760060F819 /* Group+CoreDataClass.swift */,
-				4EB4B35A26AEF0760060F819 /* Group+CoreDataProperties.swift */,
 				4EB4B35B26AEF0760060F819 /* Word+CoreDataClass.swift */,
+				4EB4B35A26AEF0760060F819 /* Group+CoreDataProperties.swift */,
 				4EB4B35C26AEF0760060F819 /* Word+CoreDataProperties.swift */,
 			);
 			path = CoreData;

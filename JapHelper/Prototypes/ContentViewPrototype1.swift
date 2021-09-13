@@ -35,6 +35,10 @@ struct ContentViewPrototype1: View {
       let dateFormatter = DateFormatter()
     
     
+    // MARK: - GREETING
+    @State var greeting = ""
+    
+    
     
     //MARK: - half black or dark theme / new design with neon lights under buttons and so on (you have pictures on your phone)
     
@@ -54,6 +58,7 @@ struct ContentViewPrototype1: View {
                                 .onReceive(timer) { _ in
                                     self.timeNow = dateFormatter.string(from: Date())
                                 }
+                                .onAppear()
                         }
                         .frame(height: 200)
                         
